@@ -1,14 +1,20 @@
 <main>
-  <div>
-    <form>
+  <div class="enviro-form-container">
+    <form [formGroup]="signInFormGroup">
+      <div class="enviro-bank-invalid-credentials" *ngIf="invalidCredentials">
+        Invalid Credentials.
+      </div>
       <mat-form-field class="enviro-bank-full-width">
         <mat-label>Email</mat-label>
-        <input type="email" matInput placeholder="Email">
+        <input type="email" matInput placeholder="Email" formControlName="email">
       </mat-form-field>
       <mat-form-field class="enviro-bank-full-width">
         <mat-label>Password</mat-label>
-        <input type="password" matInput placeholder="Password">
+        <input type="password" matInput placeholder="Password" formControlName="password">
       </mat-form-field>
     </form>
+    <button mat-flat-button color="primary" (click)="signIn()">
+      Sign In
+    </button>
   </div>
 </main>
