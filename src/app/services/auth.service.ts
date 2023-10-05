@@ -17,7 +17,7 @@ export class AuthService {
 
   public resetPassword(user: any): Observable<any>{
     return this.http.post<any>('/api/v1/auth/reset-password', JSON.stringify(user),{
-      headers: new HttpHeaders().set('Content-Type', 'applications/json')
+      headers: new HttpHeaders().set('Content-Type', 'application/json')
     });
   }
 }
