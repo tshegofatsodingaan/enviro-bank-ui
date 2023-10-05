@@ -7,12 +7,14 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: LoginComponent
+    component: LoginComponent,
+    title: 'Login page'
   },
   {
     path: 'customer/home',
     pathMatch: 'full',
-    component: HomeComponent
+    component: HomeComponent,
+    title: 'Home page'
   }
 ];
 

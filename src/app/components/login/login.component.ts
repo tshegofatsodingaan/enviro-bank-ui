@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent{
   signInFormGroup: FormGroup;
 
   invalidCredentials: boolean = false;
-  constructor(private formBuilder: FormBuilder, private authService: AuthService) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private route: Router,) {
     this.signInFormGroup = this.formBuilder.group({
       email: ['tshego@gmail.com', [Validators.required]],
       password: [null, [Validators.required]]
@@ -39,8 +40,9 @@ export class LoginComponent{
           this.invalidCredentials = true;
         }
       } )
+      this.route.navigateByUrl('customer/home');
     }else{
-      console.log("Invalid form")
+      console.log("Invalid form");
     }
   }
 }
