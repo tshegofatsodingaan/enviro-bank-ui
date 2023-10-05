@@ -45,4 +45,8 @@ export class LoginComponent{
       console.log("Invalid form");
     }
   }
+
+  public requestReset(): void{
+    this.route.navigateByUrl('reset-password')
+  }
 }

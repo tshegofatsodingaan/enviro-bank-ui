@@ -13,6 +13,9 @@
         <input type="password" matInput placeholder="Password" formControlName="password">
       </mat-form-field>
     </form>
+    <div class="enviro-bank-forgotPassword" style="cursor:pointer" (click)="requestReset()">
+      Forgot password?
+    </div>
     <button mat-flat-button color="primary" (click)="signIn()">
       Sign In
     </button>
