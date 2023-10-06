@@ -20,4 +20,12 @@ export class AuthService {
       headers: new HttpHeaders().set('Content-Type', 'application/json')
     });
   }
+
+  public changePassword(password: { newPassword: string; confirmPassword: string }, jwtToken: String): Observable<any>{
+
+    return this.http.post<any>('/api/v1/auth/change-password?token='+jwtToken, JSON.stringify(password), {
+      headers: new HttpHeaders().set('Content-Type', 'application/json')
+    })
+  }
+
 }

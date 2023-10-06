@@ -1,13 +1,88 @@
-.enviro-form-container{
-  width: 450px;
-  margin: 100px auto;
+body {
+  margin: 0;
+  padding: 0;
 }
 
-.enviro-bank-invalid-credentials{
-  background: #e53935;
-  color: #FFFFFF;
-  padding: 5px;
-  margin-bottom: 10px;
+.enviro-container{
+  display: flex;
+  height: 100vh;
+}
+
+.left-container{
+  background-color: #03a9f4;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 30px;
+}
+
+.left-container-company-name{
+  color: white;
+}
+
+.left-container-info{
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+}
+
+a{
+  color: white;
+  padding-right: 25px;
+  text-decoration: none;
+}
+
+.left-container-info{
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+}
+
+.right-container{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 15% 0 8%;
+}
+
+.enviro-form-container-heading{
+  color: #1f1f1f;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+span{
+  color: #03a9f4;
+}
+
+.internal-form-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/*check this out*/
+imput{
+  width: 95%;
+  padding: 10px 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.enviro-bank-forgotPassword{
+  color: #1f1f1f;
+}
+
+button{
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 1000px;
 }
 
 .enviro-bank-forgotPassword{

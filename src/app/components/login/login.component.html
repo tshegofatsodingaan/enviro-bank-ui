@@ -1,23 +1,40 @@
 <main>
-  <div class="enviro-form-container">
-    <form [formGroup]="signInFormGroup">
-      <div class="enviro-bank-invalid-credentials" *ngIf="invalidCredentials">
-        Invalid Credentials.
-      </div>
-      <mat-form-field class="enviro-bank-full-width">
-        <mat-label>Email</mat-label>
-        <input type="email" matInput placeholder="Email" formControlName="email">
-      </mat-form-field>
-      <mat-form-field class="enviro-bank-full-width">
-        <mat-label>Password</mat-label>
-        <input type="password" matInput placeholder="Password" formControlName="password">
-      </mat-form-field>
-    </form>
-    <div class="enviro-bank-forgotPassword" style="cursor:pointer" (click)="requestReset()">
-      Forgot password?
+  <div class="enviro-container">
+
+    <div class="left-container">
+      <h1 class="left-container-company-name">Enviro Bank</h1>
+      <ul class="left-container-info">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
     </div>
-    <button mat-flat-button color="primary" (click)="signIn()">
-      Sign In
-    </button>
+
+    <div class="right-container">
+      <h3 class="enviro-form-container-heading">Welcome to <span>Enviro Bank</span></h3>
+      <form [formGroup]="signInFormGroup" class="internal-form-container">
+        <div class="enviro-bank-invalid-credentials" *ngIf="invalidCredentials">
+          Invalid Credentials.
+        </div>
+
+        <mat-form-field class="enviro-bank-full-width">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput placeholder="Email" formControlName="email">
+        </mat-form-field>
+
+        <mat-form-field class="enviro-bank-full-width">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput placeholder="Password" formControlName="password">
+        </mat-form-field>
+
+        <div class="enviro-bank-forgotPassword" style="cursor:pointer" (click)="requestReset()">
+          Forgot password?
+        </div>
+
+        <button mat-flat-button color="primary" (click)="signIn()">
+          Sign In
+        </button>
+      </form>
+    </div>
+
   </div>
 </main>

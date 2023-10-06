@@ -35,12 +35,14 @@ export class LoginComponent{
       }
       this.authService.signIn(credentials).subscribe((data) => {
         sessionStorage.setItem("enviro-bank_session", JSON.stringify(data));
+        this.route.navigateByUrl('customer/home');
       }, (error) => {
-        if (error.status === 403){
+        if (error.status === 401){
           this.invalidCredentials = true;
+          console.log( 'status code', error.status)
         }
       } )
-      this.route.navigateByUrl('customer/home');
+
     }else{
       console.log("Invalid form");
     }

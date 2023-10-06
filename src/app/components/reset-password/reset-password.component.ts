@@ -23,7 +23,7 @@ export class ResetPasswordComponent {
       const user = {
         email: this.resetPasswordFormGroup.get('email')?.value as string
       }
-      this.authService.resetPassword(user).subscribe((data) =>{
+      this.authService.resetPassword(user).subscribe(data =>{
         console.log("email has been sent.")
       }, (error) =>{
         if (error.status === 403){
