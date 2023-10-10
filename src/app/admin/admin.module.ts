@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import {AdminService} from "./services/admin.service";
 
 
 
@@ -10,6 +11,10 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
   ],
   imports: [
     CommonModule
+  ],
+  providers: [
+    AdminService
+
   ]
 })
 export class AdminModule { }
