@@ -12,6 +12,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { HomeComponent } from './components/home/home.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { DashboardComponent } from './customer/components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
     LoginComponent,
     HomeComponent,
     ResetPasswordComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,

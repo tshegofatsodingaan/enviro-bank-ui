@@ -8,24 +8,20 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent{
+export class LoginComponent implements OnInit{
 
-  signInFormGroup: FormGroup;
+  signInFormGroup: FormGroup = new FormGroup({});
 
   invalidCredentials: boolean = false;
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private route: Router,) {
-    this.signInFormGroup = this.formBuilder.group({
-      email: ['tshego@gmail.com', [Validators.required]],
-      password: [null, [Validators.required]]
-    })
   }
 
-  // ngOnInit(): void {
-  //   this.signInFormGroup = this.formBuilder.group({
-  //     email: [null, [Validators.required]],
-  //     password: [null, [Validators.required]]
-  //   })
-  // }
+  ngOnInit(): void {
+    this.signInFormGroup = this.formBuilder.group({
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]]
+    })
+  }
 
   public signIn(): void {
     if(this.signInFormGroup.valid){

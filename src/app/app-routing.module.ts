@@ -8,7 +8,11 @@ import {ChangePasswordComponent} from "./components/change-password/change-passw
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
+    redirectTo: '/',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
     component: LoginComponent,
     title: 'Login page'
   },
