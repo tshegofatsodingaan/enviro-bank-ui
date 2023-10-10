@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit{
       }
       this.authService.signIn(credentials).subscribe((data) => {
         sessionStorage.setItem("enviro-bank_session", JSON.stringify(data));
-        this.route.navigateByUrl('customer/home');
+        this.route.navigateByUrl('admin/dashboard');
       }, (error) => {
         if (error.status === 401){
           this.invalidCredentials = true;
