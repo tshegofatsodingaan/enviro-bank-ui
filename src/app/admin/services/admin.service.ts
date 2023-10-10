@@ -12,7 +12,6 @@ export class AdminService {
 
   public getAllCustomers(): Observable<Customer[]>{
     return this.http.get<Customer[]>('/api/v1/customers', {
-      headers: new HttpHeaders().set('Content-Type', 'application/json')
     });
   }
 }

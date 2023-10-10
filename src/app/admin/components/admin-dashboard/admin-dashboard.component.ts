@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AdminService} from "../../services/admin.service";
 import {Customer} from "../../../models/customer.model";
+import {J} from "@angular/cdk/keycodes";
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -17,10 +18,12 @@ export class AdminDashboardComponent implements OnInit{
   constructor(private adminService: AdminService) {
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.adminService.getAllCustomers().subscribe(data => {
       this.customers = data;
     })
+
+
   }
 
 }
