@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CustomerDashboardComponent } from './components/customer-dashboard/customer-dashboard.component';
 import {CustomerService} from "./services/customer.service";
+import {MaterialModule} from "../material/material.module";
 
 
 
@@ -10,7 +11,8 @@ import {CustomerService} from "./services/customer.service";
     CustomerDashboardComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule
   ],
   providers: [
     CustomerService

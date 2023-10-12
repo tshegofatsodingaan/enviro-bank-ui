@@ -1,0 +1,67 @@
+.account-body{
+  background-color: #03a9f4;
+}
+
+.toolbar{
+  font-size: 25px;
+  font-weight: bold;
+  padding: 60px;
+  background-color: #FFFFFF;
+}
+
+.toolbar-heading{
+  font-size: 30px;
+  margin: 0 0 0 7.5%;
+}
+
+.account-cards-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+  padding: 120px;
+}
+
+.accounts-heading{
+  font-size: 27px;
+  margin: 0 0 70px;
+}
+
+.account-cards{
+  padding-bottom: 40px;
+}
+
+.account-card {
+  padding: 0 0 10px;
+  background-color: #FFFFFF;
+  border-radius: 0;
+}
+
+.account-card-title{
+  font-size: 30px;
+  padding: 25px 0 0 50px;
+}
+
+.account-card-content-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.account-card-available-balance {
+  font-size: 20px;
+  padding: 20px 0 0 45px;
+}
+
+.account-card-latest-balance {
+  font-size: 20px;
+  padding: 15px 0 0 100px;
+}
+
+.account-transfer-button {
+  background-color: #03a9f4;
+  font-size: 19px;
+  font-weight: bold;
+  margin: 6px 0 5px 700px;
+  padding: 20px 60px;
+
+}

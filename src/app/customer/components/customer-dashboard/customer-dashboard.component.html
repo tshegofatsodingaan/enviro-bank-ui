@@ -1,1 +1,26 @@
-<p>customer-dashboard works!</p>
+
+<mat-toolbar class="toolbar">
+  <span class="toolbar-heading">Enviro-Bank</span>
+</mat-toolbar>
+
+
+<body class="account-body">
+  <div class="account-cards-container">
+    <h2 class="accounts-heading">Accounts</h2>
+
+    <div class="account-cards" *ngFor="let account of accounts">
+      <mat-card class="account-card">
+        <mat-card-title class="account-card-title">{{account.accountType}}</mat-card-title>
+        <div class="account-card-content-container">
+          <mat-card-content class="account-card-available-balance">Available Balance: {{account.accountBalance | currency: 'R '}}</mat-card-content>
+          <mat-card-content class="account-card-latest-balance">Latest Balance: {{account.accountBalance | currency: 'R '}}</mat-card-content>
+          <button class="account-transfer-button" mat-flat-button>Transfer</button>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</body>
+
+
+
+

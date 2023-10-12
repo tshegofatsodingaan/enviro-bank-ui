@@ -4,7 +4,7 @@ export class Customer {
   surname = '';
   email = '';
   password = '';
-  idNumber = '';
+  numberOfAccounts = '';
   phoneNumber = '';
   role = {
     id: 0,
