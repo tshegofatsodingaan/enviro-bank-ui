@@ -10,8 +10,9 @@
     </div>
 
     <div class="right-container">
-      <h3 class="enviro-form-container-heading">Welcome to <span>Enviro Bank</span></h3>
+
       <form [formGroup]="signInFormGroup" class="internal-form-container">
+        <h3 class="enviro-form-container-heading">Welcome to <span>Enviro Bank</span></h3>
         <div class="enviro-bank-invalid-credentials" *ngIf="invalidCredentials">
           Invalid Credentials.
         </div>
