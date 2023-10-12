@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Account} from "../../../models/account.model";
 import {CustomerService} from "../../services/customer.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-customer-dashboard',
@@ -12,7 +13,8 @@ export class CustomerDashboardComponent implements OnInit{
   accounts: Account[] = []
 
 
-  constructor(private customerService: CustomerService) {
+  constructor(private customerService: CustomerService,
+              private route: Router) {
   }
 
   ngOnInit(): void {
@@ -29,4 +31,7 @@ export class CustomerDashboardComponent implements OnInit{
     }
 
 
+  transferFunds() {
+    this.route.navigateByUrl('customer/transfer-funds');
+  }
 }
