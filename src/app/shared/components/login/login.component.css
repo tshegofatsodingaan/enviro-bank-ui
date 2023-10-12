@@ -82,7 +82,8 @@ button{
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-right: 1000px;
+  margin-right: auto;
+
 }
 
 .enviro-bank-forgotPassword{

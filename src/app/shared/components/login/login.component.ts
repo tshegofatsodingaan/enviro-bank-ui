@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit{
   ngOnInit(): void {
     this.signInFormGroup = this.formBuilder.group({
       email: ['tshego@gmail.com', [Validators.required]],
-      password: ['', [Validators.required]]
+      password: ['1234', [Validators.required]]
     })
   }
 
@@ -29,9 +29,19 @@ export class LoginComponent implements OnInit{
         email: this.signInFormGroup.get('email')?.value as string,
         password: this.signInFormGroup.get('password')?.value as string,
       }
+
       this.authService.signIn(credentials).subscribe((data) => {
         sessionStorage.setItem("enviro-bank_session", JSON.stringify(data));
-        this.route.navigateByUrl('admin/dashboard');
+
+        const enviro_bank_session = this.authService.session;
+        console.log(enviro_bank_session);
+
+        if(enviro_bank_session.roles[0] == "USER"){
+          this.route.navigateByUrl('customer/dashboard');
+        } else{
+          this.route.navigateByUrl('admin/dashboard');
+        }
+
       }, (error) => {
         if (error.status === 401){
           this.invalidCredentials = true;
@@ -43,6 +53,7 @@ export class LoginComponent implements OnInit{
       console.log("Invalid form");
     }
   }
+
 
   public requestReset(): void{
     this.route.navigateByUrl('reset-password')

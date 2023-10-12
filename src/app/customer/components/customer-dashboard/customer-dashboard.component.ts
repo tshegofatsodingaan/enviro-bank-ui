@@ -11,12 +11,22 @@ export class CustomerDashboardComponent implements OnInit{
 
   accounts: Account[] = []
 
+
   constructor(private customerService: CustomerService) {
   }
 
   ngOnInit(): void {
-    this.customerService.getAllAccounts({ size: 3, page: 0}).subscribe(data => {
-      this.accounts = data;
-    })
-  }
+    const enviro_bank_session_String = sessionStorage.getItem('enviro-bank_session');
+
+    if(!!enviro_bank_session_String){
+      const enviro_bank_session = JSON.parse(enviro_bank_session_String);
+
+      this.customerService.getAllAccounts(enviro_bank_session.token, {size: 3, page: 0}).subscribe(data => {
+        this.accounts = data;
+        console.log(this.accounts);
+      })
+    }
+    }
+
+
 }

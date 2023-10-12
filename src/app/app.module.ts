@@ -9,8 +9,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {SharedModule} from "./shared/shared.module";
 import {AdminModule} from "./admin/admin.module";
-import {AuthInterceptor} from "./interceptor/auth.interceptor";
+import { AuthInterceptor } from "./interceptor/auth.interceptor";
 import {AuthService} from "./shared/services/auth.service";
+import {CustomerModule} from "./customer/customer.module";
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import {AuthService} from "./shared/services/auth.service";
     HttpClientModule,
     SharedModule,
     AdminModule,
+    CustomerModule
   ],
   providers: [{provide: AuthService},{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]

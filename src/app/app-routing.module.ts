@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { LoginComponent } from "./shared/components/login/login.component";
 import { ResetPasswordComponent } from "./shared/components/reset-password/reset-password.component";
 import { ChangePasswordComponent } from "./shared/components/change-password/change-password.component";
 import { CustomerDashboardComponent } from "./customer/components/customer-dashboard/customer-dashboard.component";
 import { AdminDashboardComponent } from "./admin/components/admin-dashboard/admin-dashboard.component";
+import {AuthorizedRoutes} from "./shared/security/authorized-routs";
 
-const routes: Routes = [
+const routes: AuthorizedRoutes = [
   {
     path: '',
     redirectTo: '/',
@@ -20,12 +21,14 @@ const routes: Routes = [
   {
     path: 'customer/dashboard',
     pathMatch: 'full',
+    authorizedRoles: ['USER'],
     component: CustomerDashboardComponent,
     title: 'Customer Dashboard'
   },
   {
     path: 'admin/dashboard',
     pathMatch: 'full',
+    authorizedRoles: ['ADMIN'],
     component: AdminDashboardComponent,
     title: 'Admin dashboard'
   },
@@ -46,5 +49,11 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
+ // providers: [{provide: AuthorizedUserGuard}]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+
+  // constructor(router: Router) {
+  //   router.resetConfig(addAuthorizationGuards(routes));
+  // }
+}
