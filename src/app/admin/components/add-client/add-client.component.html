@@ -1,1 +1,49 @@
-<p>add-client works!</p>
+<main>
+  <div class="enviro-container">
+
+    <div class="left-container">
+      <h1 class="left-container-company-name">Enviro Bank</h1>
+      <ul class="left-container-info">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="right-container">
+      <h3 class="enviro-form-container-heading">Create new client</h3>
+      <form [formGroup]="addNewClientFormGroup" class="right-container-form">
+
+        <mat-form-field class="enviro-bank-full-width">
+          <mat-label>Name</mat-label>
+          <input type="text" matInput placeholder="Name" formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field class="enviro-bank-full-width">
+          <mat-label>Surname</mat-label>
+          <input type="text" matInput placeholder="Surname" formControlName="surname">
+        </mat-form-field>
+
+        <mat-form-field class="enviro-bank-full-width">
+          <mat-label>Id Number</mat-label>
+          <input type="text" matInput placeholder="Id number" formControlName="idNumber">
+        </mat-form-field>
+
+        <mat-form-field class="enviro-bank-full-width">
+          <mat-label>Phone Number</mat-label>
+          <input type="text" matInput placeholder="Phone number" formControlName="phoneNumber">
+        </mat-form-field>
+
+        <mat-form-field class="enviro-bank-full-width">
+          <mat-label>Email Address</mat-label>
+          <input type="email" matInput placeholder="Email" formControlName="email">
+        </mat-form-field>
+
+        <button class="form-button" mat-flat-button color="primary" (click)="addNewClient()">Add new client</button>
+
+      </form>
+    </div>
+
+  </div>
+
+</main>
+
