@@ -5,7 +5,9 @@ import { ResetPasswordComponent } from "./shared/components/reset-password/reset
 import { ChangePasswordComponent } from "./shared/components/change-password/change-password.component";
 import { CustomerDashboardComponent } from "./customer/components/customer-dashboard/customer-dashboard.component";
 import { AdminDashboardComponent } from "./admin/components/admin-dashboard/admin-dashboard.component";
-import {AuthorizedRoutes} from "./shared/security/authorized-routs";
+import { AuthorizedRoutes } from "./shared/security/authorized-routs";
+import { AddClientComponent } from "./admin/components/add-client/add-client.component";
+import { TransferComponent } from "./customer/components/transfer/transfer.component";
 
 const routes: AuthorizedRoutes = [
   {
@@ -43,6 +45,20 @@ const routes: AuthorizedRoutes = [
     pathMatch: 'full',
     component: ChangePasswordComponent,
     title: 'Change password page'
+  },
+  {
+    path: 'admin/create-new-client',
+    pathMatch: 'full',
+    authorizedRoles: ['ADMIN'],
+    component: AddClientComponent,
+    title: 'New client page'
+  },
+  {
+    path: 'customer/transfer-funds',
+    pathMatch: 'full',
+    authorizedRoles: ['USER'],
+    component: TransferComponent,
+    title: 'Transfer funds page'
   }
 ];
 

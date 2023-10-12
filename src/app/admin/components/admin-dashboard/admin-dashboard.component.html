@@ -8,7 +8,7 @@
 
     <div class="customer-header">
       <h2 class="customer-table-heading">Clients</h2>
-      <button class="customer-add-client-btn" mat-flat-button>Add Client</button>
+      <button class="customer-add-client-btn" mat-flat-button (click)="addNewClient()">Add Client</button>
     </div>
     <table mat-table [dataSource]="customers" class="mat-elevation-z8">
 

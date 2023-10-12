@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AdminService} from "../../services/admin.service";
 import {Customer} from "../../../models/customer.model";
 import {AuthService} from "../../../shared/services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -15,7 +16,8 @@ export class AdminDashboardComponent implements OnInit{
   displayedColumns: string[] = ['name', 'surname', 'email', 'numberOfAccounts'];
   dataSource = this.customers;
 
-  constructor(private adminService: AdminService, private authService: AuthService) {
+  constructor(private adminService: AdminService, private authService: AuthService,
+              private route: Router) {
   }
 
   ngOnInit() {
@@ -28,4 +30,7 @@ export class AdminDashboardComponent implements OnInit{
 
   }
 
+  addNewClient() {
+    this.route.navigateByUrl('admin/create-new-client')
+  }
 }
