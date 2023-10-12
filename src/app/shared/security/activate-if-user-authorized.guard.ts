@@ -23,7 +23,7 @@ export class AuthorizedUserGuard {
       const routeAuthorizedRoles: string[] = route.routeConfig[authorizedRoles];
 
       for (const routeAuthorizedRole of routeAuthorizedRoles) {
-        if (enviro_bank_session.roles.includes(routeAuthorizedRole)) {
+        if (enviro_bank_session.role.includes(routeAuthorizedRole)) {
           return true;
         }
       }
