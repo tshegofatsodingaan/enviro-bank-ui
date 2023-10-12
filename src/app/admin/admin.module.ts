@@ -5,6 +5,7 @@ import {AdminService} from "./services/admin.service";
 import {MaterialModule} from "../material/material.module";
 import {MatTableModule} from "@angular/material/table";
 import { AddClientComponent } from './components/add-client/add-client.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -16,7 +17,9 @@ import { AddClientComponent } from './components/add-client/add-client.component
   imports: [
     CommonModule,
     MaterialModule,
-    MatTableModule
+    MatTableModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     AdminService

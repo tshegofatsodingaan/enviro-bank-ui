@@ -15,4 +15,10 @@ export class AdminService {
       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)
     });
   }
+
+  public addNewClient(token: string, userDetails: any): Observable<any>{
+    return this.http.post<any>('/api/v1/customers', JSON.stringify(userDetails), {
+      headers: new HttpHeaders().set('Content-Type', 'application/json',)
+    })
+  }
 }
