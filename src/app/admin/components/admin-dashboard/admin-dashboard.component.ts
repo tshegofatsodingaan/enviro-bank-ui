@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AdminService} from "../../services/admin.service";
 import {Customer} from "../../../models/customer.model";
-import {J} from "@angular/cdk/keycodes";
+import {AuthService} from "../../../shared/services/auth.service";
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -10,19 +10,21 @@ import {J} from "@angular/cdk/keycodes";
 })
 export class AdminDashboardComponent implements OnInit{
 
-  customers: Customer[] = []
+  customers: Customer[] = [];
 
-  displayedColumns: string[] = ['name', 'surname', 'email', 'idNumber', 'phoneNumber'];
+  displayedColumns: string[] = ['name', 'surname', 'email', 'numberOfAccounts'];
   dataSource = this.customers;
 
-  constructor(private adminService: AdminService) {
+  constructor(private adminService: AdminService, private authService: AuthService) {
   }
 
   ngOnInit() {
-    this.adminService.getAllCustomers().subscribe(data => {
-      this.customers = data;
-    })
+    const enviro_bank_session = this.authService.session;
 
+    this.adminService.getAllCustomers(enviro_bank_session.token).subscribe(data => {
+      this.customers = data;
+      console.log("Customers Data",this.customers);
+    })
 
   }
 

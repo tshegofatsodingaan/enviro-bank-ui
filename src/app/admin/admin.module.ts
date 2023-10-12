@@ -4,12 +4,14 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
 import {AdminService} from "./services/admin.service";
 import {MaterialModule} from "../material/material.module";
 import {MatTableModule} from "@angular/material/table";
+import { AddClientComponent } from './components/add-client/add-client.component';
 
 
 
 @NgModule({
   declarations: [
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    AddClientComponent
   ],
   imports: [
     CommonModule,

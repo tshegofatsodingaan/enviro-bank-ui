@@ -1,7 +1,40 @@
+.toolbar{
+  font-size: 25px;
+  font-weight: bold;
+  padding: 60px;
+  background-color: #FFFFFF;
+}
+
+.toolbar-heading{
+  padding: 0 0 0 38px;
+}
+
+.customer-header{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.customer-table-heading{
+  font-size: 28px;
+}
+
+.customer-add-client-btn{
+  margin-left: auto;
+  padding: 25px 50px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
 .customer-table{
   width: 90%;
   margin: auto;
-  padding: 200px 0;
+  padding: 60px 0;
 
+}
+
+.customer-container{
+  background-color: #03a9f4;
 }
 
