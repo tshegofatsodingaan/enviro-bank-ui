@@ -4,6 +4,7 @@ import { CustomerDashboardComponent } from './components/customer-dashboard/cust
 import {CustomerService} from "./services/customer.service";
 import {MaterialModule} from "../material/material.module";
 import { TransferComponent } from './components/transfer/transfer.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -14,7 +15,8 @@ import { TransferComponent } from './components/transfer/transfer.component';
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ],
   providers: [
     CustomerService

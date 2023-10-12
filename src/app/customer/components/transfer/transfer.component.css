@@ -1,0 +1,56 @@
+.enviro-container{
+  display: flex;
+  height: 100vh;
+}
+
+.left-container{
+  background-color: #03a9f4;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 30px;
+}
+
+.left-container-company-name{
+  color: white;
+}
+
+.left-container-info{
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+}
+
+a{
+  color: white;
+  padding-right: 25px;
+  text-decoration: none;
+}
+
+.right-container{
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 15% 0 8%;
+  margin: auto;
+}
+
+.enviro-form-container-heading{
+  color: grey;
+  font-size: 23px;
+  margin-bottom: 20px;
+}
+
+.right-container-form{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.form-button{
+  background-color: #007bff;
+  width: 100%;
+  margin-right: auto;
+}

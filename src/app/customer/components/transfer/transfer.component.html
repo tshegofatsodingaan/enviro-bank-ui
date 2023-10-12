@@ -1,1 +1,40 @@
-<p>transfer works!</p>
+<main>
+  <div class="enviro-container">
+
+    <div class="left-container">
+      <h1 class="left-container-company-name">Enviro Bank</h1>
+      <ul class="left-container-info">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="right-container">
+      <h3 class="enviro-form-container-heading">Transfer Funds</h3>
+      <form class="right-container-form">
+        <mat-form-field class="enviro-bank-full-width">
+          <mat-label>Account Number</mat-label>
+          <input type="number" matInput placeholder="Account number" formControlName="accountNumber">
+        </mat-form-field>
+
+        <mat-form-field class="enviro-bank-full-width">
+          <mat-label>Receiver Account Number</mat-label>
+          <input type="number" matInput placeholder="Account number" formControlName="receiverAccountNumber">
+        </mat-form-field>
+
+        <mat-form-field class="enviro-bank-full-width">
+          <mat-label>Type of Transaction</mat-label>
+          <input type="text" matInput placeholder="Transaction type" formControlName="transactionType">
+        </mat-form-field>
+
+        <mat-form-field class="enviro-bank-full-width">
+          <mat-label>Amount</mat-label>
+          <input type="number" matInput placeholder="R" formControlName="amount">
+        </mat-form-field>
+
+        <button mat-flat-button color="primary" class="form-button">Transfer</button>
+      </form>
+
+    </div>
+  </div>
+</main>
