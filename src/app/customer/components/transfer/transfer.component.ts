@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Component} from '@angular/core';
+import {FormBuilder, Validators} from "@angular/forms";
 import {CustomerService} from "../../services/customer.service";
 import {AuthService} from "../../../shared/services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-transfer',
@@ -12,7 +13,8 @@ export class TransferComponent{
 
   constructor(private formBuilder: FormBuilder,
               private customerService: CustomerService,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private route: Router) {
   }
 
 
@@ -25,16 +27,9 @@ export class TransferComponent{
 
   transfer(){
     if(this.transferFundsFormGroup.valid){
-      // const transferDetails = {
-      //   accountNum: this.transferFundsFormGroup.get('accountNumber')?.value as string,
-      //   receiverAccountNum: this.transferFundsFormGroup.get('receiverAccountNumber')?.value as string,
-      //   typeOfTransaction: this.transferFundsFormGroup.get('transactionType')?.value as string,
-      //   transactionAmount: this.transferFundsFormGroup.get('amount')?.value as bigint,
-      // }
-      const enviro_bank_session = this.authService.session
-
-      this.customerService.transferFunds(enviro_bank_session.token, this.transferFundsFormGroup.value).subscribe(data => {
-        console.log(data);
+      const enviro_bank_session = this.authService.session;
+      this.customerService.transferFunds(enviro_bank_session.token, this.transferFundsFormGroup.value as string).subscribe(data => {
+      this.route.navigateByUrl('customer/dashboard');
       });
     }
     return

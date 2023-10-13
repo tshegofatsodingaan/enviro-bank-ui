@@ -16,7 +16,7 @@ export class LoginComponent{
 
 
   signInFormGroup = this.formBuilder.group({
-    email: ['', [Validators.required]],
+    email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]]
   })
 
@@ -42,9 +42,8 @@ export class LoginComponent{
         }
       } )
 
-    }else{
-      console.log("Invalid form");
     }
+    return
   }
 
 

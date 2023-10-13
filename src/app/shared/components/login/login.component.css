@@ -8,6 +8,10 @@ body {
   height: 100vh;
 }
 
+.enviro-bank-invalid-credentials{
+  width: 98%;
+}
+
 .left-container{
   background-color: #03a9f4;
   width: 30%;
@@ -74,7 +78,7 @@ span{
   margin-top: 20px;
   width: 100%;
   border-radius: 0;
-
+  font-size: 19px;
 
 }
 
