@@ -8,29 +8,22 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit{
-
-  signInFormGroup: FormGroup = new FormGroup({});
+export class LoginComponent{
 
   invalidCredentials: boolean = false;
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private route: Router,) {
   }
 
-  ngOnInit(): void {
-    this.signInFormGroup = this.formBuilder.group({
-      email: ['tshego@gmail.com', [Validators.required]],
-      password: ['1234', [Validators.required]]
-    })
-  }
+
+  signInFormGroup = this.formBuilder.group({
+    email: ['', [Validators.required]],
+    password: ['', [Validators.required]]
+  })
+
 
   public signIn(): void {
     if(this.signInFormGroup.valid){
-      const credentials = {
-        email: this.signInFormGroup.get('email')?.value as string,
-        password: this.signInFormGroup.get('password')?.value as string,
-      }
-
-      this.authService.signIn(credentials).subscribe((data) => {
+      this.authService.signIn(this.signInFormGroup.value).subscribe((data) => {
         sessionStorage.setItem("enviro-bank_session", JSON.stringify(data));
 
         const enviro_bank_session = this.authService.session;

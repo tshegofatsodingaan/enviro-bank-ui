@@ -18,7 +18,7 @@ export class AdminService {
 
   public addNewClient(token: string, userDetails: any): Observable<any>{
     return this.http.post<any>('/api/v1/customers', JSON.stringify(userDetails), {
-      headers: new HttpHeaders().set('Content-Type', 'application/json',)
-    })
+      headers: new HttpHeaders().set('Content-Type', 'application/json')
+    });
   }
 }

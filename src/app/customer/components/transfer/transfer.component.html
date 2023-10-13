@@ -11,28 +11,30 @@
 
     <div class="right-container">
       <h3 class="enviro-form-container-heading">Transfer Funds</h3>
-      <form class="right-container-form">
+
+      <form [formGroup]="transferFundsFormGroup" class="right-container-form">
+
         <mat-form-field class="enviro-bank-full-width">
           <mat-label>Account Number</mat-label>
-          <input type="number" matInput placeholder="Account number" formControlName="accountNumber">
+          <input type="text" matInput placeholder="Account number" formControlName="accountNum">
         </mat-form-field>
 
         <mat-form-field class="enviro-bank-full-width">
           <mat-label>Receiver Account Number</mat-label>
-          <input type="number" matInput placeholder="Account number" formControlName="receiverAccountNumber">
+          <input type="number" matInput placeholder="Account number" formControlName="receiverAccountNum">
         </mat-form-field>
 
         <mat-form-field class="enviro-bank-full-width">
           <mat-label>Type of Transaction</mat-label>
-          <input type="text" matInput placeholder="Transaction type" formControlName="transactionType">
+          <input type="text" matInput placeholder="Transaction type" formControlName="typeOfTransaction">
         </mat-form-field>
 
         <mat-form-field class="enviro-bank-full-width">
           <mat-label>Amount</mat-label>
-          <input type="number" matInput placeholder="R" formControlName="amount">
+          <input type="number" matInput placeholder="R" formControlName="transactionAmount">
         </mat-form-field>
 
-        <button mat-flat-button color="primary" class="form-button">Transfer</button>
+        <button mat-flat-button color="primary" class="form-button" (click)="transfer()">Transfer</button>
       </form>
 
     </div>

@@ -17,4 +17,11 @@ export class CustomerService {
     });
   }
 
+  public transferFunds(token: string, transferDetails: any): Observable<any>{
+    return this.http.post<any>('/api/v1/transactions/transfer', JSON.stringify(transferDetails), {
+      headers: new HttpHeaders().set('Content-Type', 'application/json')
+
+    });
+  }
+
 }
