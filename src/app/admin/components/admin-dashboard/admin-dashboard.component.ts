@@ -3,6 +3,7 @@ import {AdminService} from "../../services/admin.service";
 import {Customer} from "../../../models/customer.model";
 import {AuthService} from "../../../shared/services/auth.service";
 import {Router} from "@angular/router";
+import {MatTableDataSource} from "@angular/material/table";
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -14,7 +15,8 @@ export class AdminDashboardComponent implements OnInit{
   customers: Customer[] = [];
 
   displayedColumns: string[] = ['name', 'surname', 'email', 'numberOfAccounts'];
-  dataSource = this.customers;
+  dataSource = new MatTableDataSource(this.customers);
+  // dataSource = this.customers;
 
   constructor(private adminService: AdminService, private authService: AuthService,
               private route: Router) {

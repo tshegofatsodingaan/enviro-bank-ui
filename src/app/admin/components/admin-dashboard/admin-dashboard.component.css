@@ -1,8 +1,9 @@
 .toolbar{
-  font-size: 25px;
+  font-size: 30px;
   font-weight: bold;
   padding: 60px;
-  background-color: #FFFFFF;
+  background-color: #03a9f4;
+  color: #FFFFFF;
 }
 
 .toolbar-heading{
@@ -16,7 +17,8 @@
 }
 
 .customer-table-heading{
-  font-size: 28px;
+  font-size: 29px;
+  color: grey;
 }
 
 .customer-add-client-btn{
@@ -25,6 +27,8 @@
   border-radius: 10px;
   font-weight: bold;
   font-size: 18px;
+  background-color: #03a9f4 !important;
+  color: #FFFFFF !important;
 }
 
 .customer-table{
@@ -35,6 +39,6 @@
 }
 
 .customer-container{
-  background-color: #03a9f4;
+  background-color: #FFFFFF;
 }
 

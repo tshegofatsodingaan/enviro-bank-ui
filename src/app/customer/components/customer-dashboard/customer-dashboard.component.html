@@ -11,11 +11,19 @@
     <div class="account-cards" *ngFor="let account of accounts">
       <mat-card class="account-card">
         <mat-card-title class="account-card-title">{{account.accountType}}</mat-card-title>
-        <div class="account-card-content-container">
-          <mat-card-content class="account-card-available-balance">Available Balance: {{account.accountBalance | currency: 'R '}}</mat-card-content>
-          <mat-card-content class="account-card-latest-balance">Latest Balance: {{account.accountBalance | currency: 'R '}}</mat-card-content>
-          <button class="account-transfer-button" mat-flat-button (click)="transferFunds()">Transfer</button>
-        </div>
+
+        <mat-card-content>
+          <div class="account-card-content-container">
+            <div class="account-card-available-balance">
+              Available Balance: {{account.accountBalance | currency: 'R'}}
+            </div>
+            <div class="account-card-latest-balance">
+              Latest Balance: {{account.accountBalance | currency: 'R'}}
+            <button class="account-transfer-button" mat-flat-button (click)="transferFunds()">Transfer</button>
+            </div>
+          </div>
+        </mat-card-content>
+
       </mat-card>
     </div>
   </div>

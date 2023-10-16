@@ -1,12 +1,13 @@
 .account-body{
-  background-color: #03a9f4;
+  background-color: #FFFFFF;
 }
 
 .toolbar{
   font-size: 25px;
   font-weight: bold;
+  color: #FFFFFF;
   padding: 60px;
-  background-color: #FFFFFF;
+  background-color: #03a9f4;
 }
 
 .toolbar-heading{
@@ -23,8 +24,9 @@
 }
 
 .accounts-heading{
-  font-size: 27px;
+  font-size: 29px;
   margin: 0 0 70px;
+  color: grey;
 }
 
 .account-cards{
@@ -49,7 +51,7 @@
 
 .account-card-available-balance {
   font-size: 20px;
-  padding: 20px 0 0 45px;
+  padding: 25px 0 0 45px;
 }
 
 .account-card-latest-balance {
