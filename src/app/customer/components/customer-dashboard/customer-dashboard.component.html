@@ -14,7 +14,7 @@
         <div class="account-card-content-container">
           <mat-card-content class="account-card-available-balance">Available Balance: {{account.accountBalance | currency: 'R '}}</mat-card-content>
           <mat-card-content class="account-card-latest-balance">Latest Balance: {{account.accountBalance | currency: 'R '}}</mat-card-content>
-          <button class="account-transfer-button" mat-flat-button color="custom" (click)="transferFunds()">Transfer</button>
+          <button class="account-transfer-button" mat-flat-button (click)="transferFunds()">Transfer</button>
         </div>
       </mat-card>
     </div>

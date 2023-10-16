@@ -10,18 +10,15 @@ export class CustomerService {
 
   constructor(private http: HttpClient) { }
 
-  public getAllAccounts(token: string, params: { size: number; page: number }): Observable<Account[]> {
-    return this.http.get<Account[]>('/api/v1/accounts', {
+  public getAllAccounts(token: string, id: string, params: { size: number; page: number }): Observable<Account[]> {
+    return this.http.get<Account[]>('/api/v1/accounts?id=' + id, {
       params, // for pagination
-      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)
     });
   }
 
-  public transferFunds(token: string, transferDetails: any): Observable<any>{
-    return this.http.post<any>('/api/v1/transactions/transfer', JSON.stringify(transferDetails), {
-      headers: new HttpHeaders().set('Content-Type', 'application/json'),
-
-
+  public transferFunds(token: string, transferDetails: any): Observable<void>{
+    return this.http.post<void>('/api/v1/transactions/transfer', JSON.stringify(transferDetails), {
+      headers: new HttpHeaders().set('Content-Type', 'application/json')
     });
   }
 

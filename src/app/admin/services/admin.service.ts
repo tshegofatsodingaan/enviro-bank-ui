@@ -11,9 +11,7 @@ export class AdminService {
   constructor(private http: HttpClient) { }
 
   public getAllCustomers(token: string): Observable<Customer[]>{
-    return this.http.get<Customer[]>('/api/v1/customers', {
-      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`)
-    });
+    return this.http.get<Customer[]>('/api/v1/customers');
   }
 
   public addNewClient(token: string, userDetails: any): Observable<any>{

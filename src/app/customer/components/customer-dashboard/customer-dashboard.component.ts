@@ -23,9 +23,8 @@ export class CustomerDashboardComponent implements OnInit{
     if(!!enviro_bank_session_String){
       const enviro_bank_session = JSON.parse(enviro_bank_session_String);
 
-      this.customerService.getAllAccounts(enviro_bank_session.token, {size: 3, page: 0}).subscribe(data => {
+      this.customerService.getAllAccounts(enviro_bank_session.token, enviro_bank_session.id, {size: 3, page: 0}).subscribe(data => {
         this.accounts = data;
-        console.log(this.accounts);
       })
     }
     }

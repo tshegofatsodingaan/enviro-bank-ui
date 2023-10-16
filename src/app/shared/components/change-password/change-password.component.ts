@@ -34,12 +34,12 @@ export class ChangePasswordComponent implements OnInit{
 
       const userToken = this.activatedRoute.snapshot.queryParams['token'];
       this.authService.changePassword(passwords, userToken).subscribe((error) => {
+
         if (error.status === 403){
           this.uniquePassword = true
         }
       })
     }
-    // this.route.navigateByUrl('')
   }
 
 }

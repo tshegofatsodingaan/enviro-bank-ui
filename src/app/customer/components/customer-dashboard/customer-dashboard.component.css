@@ -58,10 +58,11 @@
 }
 
 .account-transfer-button {
-  background-color: #03a9f4;
+  background-color: #03a9f4 !important;
   font-size: 19px;
   font-weight: bold;
   margin: 6px 0 5px 700px;
   padding: 20px 60px;
+  color: white !important;
 
 }

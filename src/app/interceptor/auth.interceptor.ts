@@ -10,11 +10,9 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const enviro_bank_sessionString = sessionStorage.getItem('enviro-bank_session');
-    console.log("enviro_bank_sessionString: ", enviro_bank_sessionString)
 
     if (enviro_bank_sessionString) {
       const enviro_bank_session = JSON.parse(enviro_bank_sessionString);
-      console.log("enviro_bank_session", enviro_bank_session);
       if (enviro_bank_session.token) {
         const clonedRequest = request.clone(
           {
