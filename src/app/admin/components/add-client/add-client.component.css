@@ -1,25 +1,11 @@
+
+body{
+  background-color: #F9F7F5;
+}
+
 .enviro-container{
   display: flex;
   height: 100vh;
-}
-
-.left-container{
-  background-color: #03a9f4;
-  width: 30%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 20px 30px;
-}
-
-.left-container-company-name{
-  color: white;
-}
-
-.left-container-info{
-  display: flex;
-  list-style-type: none;
-  padding: 0;
 }
 
 a{
@@ -28,28 +14,48 @@ a{
   text-decoration: none;
 }
 
-.right-container{
-  width: 70%;
+.add-new-client-container{
+  /*width: 70%;*/
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 15% 0 8%;
+  padding: 80px 0;
+  /*padding: 0 15% 0 8%;*/
+
+}
+
+
+.add-client-card{
+  width: 50%
+}
+
+.form-field-width{
+  width: 100%
+
 }
 
 .enviro-form-container-heading{
-  color: grey;
+  color: black;
   font-size: 23px;
   margin-bottom: 20px;
+  font-weight: 500;
+  padding: 0 0 0 20px;
 }
+
 
 .right-container-form{
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+
 }
 
 .form-button{
   background-color: #03a9f4 !important;
-  width: 100%;
-  margin-right: auto;
+  width: 40%;
+  margin-left: auto;
+
+}
+
+.add-client-card{
+  margin: auto;
 }
