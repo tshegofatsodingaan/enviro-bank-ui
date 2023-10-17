@@ -1,10 +1,3 @@
-.toolbar{
-  font-size: 30px;
-  font-weight: bold;
-  padding: 60px;
-  background-color: #03a9f4;
-  color: #FFFFFF;
-}
 
 .toolbar-heading{
   padding: 0 0 0 38px;
@@ -29,7 +22,11 @@
 
 .customer-table-heading{
   font-size: 29px;
-  color: grey;
+  font-weight: 500;
+  color: black;
+  margin-top: 0;
+
+
 }
 
 .customer-add-client-btn{
@@ -45,11 +42,11 @@
 .customer-table{
   width: 90%;
   margin: auto;
-  padding: 60px 0;
+  padding: 80px 0;
 
 }
 
 .customer-container{
-  background-color: #FFFFFF;
+  background-color: #F9F7F5;
 }
 
