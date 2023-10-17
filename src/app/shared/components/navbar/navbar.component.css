@@ -1,0 +1,70 @@
+.toolbar{
+  font-size: 25px;
+  font-weight: bold;
+  padding: 60px;
+  background-color: #03a9f4;
+}
+
+.avatar{
+  font-size: 26px;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-weight: normal;
+  margin-left: 1300px;
+
+}
+
+.nav-items{
+  display: flex;
+  flex-direction: row;
+}
+
+.toolbar-heading{
+  padding: 20px 0 0;
+  font-weight: 500;
+  font-size: 30px;
+  color: #FFFFFF;
+}
+
+.sub-menu-wrap{
+  display: none;
+  position: absolute;
+  top: 120px;
+  width: 200px;
+  right: 5%;
+
+}
+
+.sub-menu-wrap.open-menu {
+  max-height: 400px;
+}
+
+.sub-menu{
+  background-color: #FFFFFF;
+  height: 110px;
+  padding: 1px 20px 16px;
+}
+
+.menu-info{
+  padding: 0 0 35px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+
+.sub-menu-tag:hover {
+  font-size: 19px;
+}
+
+
+.active {
+  display: block;
+}
+
+
