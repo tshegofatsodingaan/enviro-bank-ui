@@ -1,10 +1,10 @@
 .account-body{
-  background-color: #FFFFFF;
+  background-color: #F9F7F5;
 }
 
-.toolbar-heading{
-  font-size: 30px;
-  margin: 0 0 0 7.5%;
+
+.add-client-card{
+  margin: auto;
 }
 
 .account-cards-container {
@@ -18,8 +18,9 @@
 
 .accounts-heading{
   font-size: 29px;
+  font-weight: 500;
   margin: 0 0 70px;
-  color: grey;
+  color: black;
 }
 
 .account-cards{

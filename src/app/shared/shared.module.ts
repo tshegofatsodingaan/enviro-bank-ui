@@ -7,6 +7,7 @@ import {MaterialModule} from "../material/material.module";
 import {ReactiveFormsModule} from "@angular/forms";
 import {AuthService} from "./services/auth.service";
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { UpdateClientComponent } from './components/update-client/update-client.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     ChangePasswordComponent,
     ResetPasswordComponent,
     NavbarComponent,
+    UpdateClientComponent,
   ],
   imports: [
     CommonModule,
