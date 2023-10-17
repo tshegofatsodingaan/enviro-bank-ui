@@ -7,6 +7,7 @@ import { TransferComponent } from './components/transfer/transfer.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {AuthorizedRoute} from "../shared/security/authorized-routs";
 import {RouterModule} from "@angular/router";
+import {SharedModule} from "../shared/shared.module";
 
 
 export const customerRoutes: AuthorizedRoute[] = [
@@ -31,12 +32,13 @@ export const customerRoutes: AuthorizedRoute[] = [
     CustomerDashboardComponent,
     TransferComponent
   ],
-  imports: [
-    CommonModule,
-    MaterialModule,
-    ReactiveFormsModule,
-    RouterModule.forChild(customerRoutes),
-  ],
+    imports: [
+        CommonModule,
+        MaterialModule,
+        ReactiveFormsModule,
+        RouterModule.forChild(customerRoutes),
+        SharedModule,
+    ],
   providers: [
     CustomerService
   ]

@@ -6,18 +6,23 @@ import { ResetPasswordComponent } from "./components/reset-password/reset-passwo
 import {MaterialModule} from "../material/material.module";
 import {ReactiveFormsModule} from "@angular/forms";
 import {AuthService} from "./services/auth.service";
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
     ChangePasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    NavbarComponent,
   ],
   imports: [
     CommonModule,
     MaterialModule,
     ReactiveFormsModule
+  ],
+  exports: [
+    NavbarComponent
   ],
   providers: [
     AuthService

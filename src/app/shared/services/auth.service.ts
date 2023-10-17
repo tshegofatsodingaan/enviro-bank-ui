@@ -38,6 +38,12 @@ export class AuthService {
     })
   }
 
+  public getAllUsers(): Observable<any>{
+    return this.http.get<any>('/api/v1/users/all-users', {
+      headers: new HttpHeaders().set('Content-Type', 'application/json')
+    })
+  }
+
   redirectToLogin() {
     sessionStorage.removeItem('enviro_bank_session');
   this.route.navigate(['']);

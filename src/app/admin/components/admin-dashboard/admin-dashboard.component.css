@@ -16,6 +16,17 @@
   margin-bottom: 10px;
 }
 
+.avatar{
+  font-size: 26px;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  background-color: green;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .customer-table-heading{
   font-size: 29px;
   color: grey;
