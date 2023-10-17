@@ -5,7 +5,25 @@ import {CustomerService} from "./services/customer.service";
 import {MaterialModule} from "../material/material.module";
 import { TransferComponent } from './components/transfer/transfer.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {AuthorizedRoute} from "../shared/security/authorized-routs";
+import {RouterModule} from "@angular/router";
 
+
+export const customerRoutes: AuthorizedRoute[] = [
+  {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full',
+  },
+  {
+    path: 'dashboard',
+    component: CustomerDashboardComponent
+  },
+  {
+    path: 'transfer-funds',
+    component: TransferComponent
+  }
+];
 
 
 @NgModule({
@@ -16,7 +34,8 @@ import {ReactiveFormsModule} from "@angular/forms";
   imports: [
     CommonModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forChild(customerRoutes),
   ],
   providers: [
     CustomerService

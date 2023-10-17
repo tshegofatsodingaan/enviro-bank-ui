@@ -21,17 +21,15 @@ const routes: AuthorizedRoutes = [
     title: 'Login page'
   },
   {
-    path: 'customer/dashboard',
-    pathMatch: 'full',
+    path: 'customer',
     authorizedRoles: ['USER'],
-    component: CustomerDashboardComponent,
+    loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule),
     title: 'Customer Dashboard'
   },
   {
-    path: 'admin/dashboard',
-    pathMatch: 'full',
+    path: 'admin',
     authorizedRoles: ['ADMIN'],
-    component: AdminDashboardComponent,
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
     title: 'Admin dashboard'
   },
   {
@@ -47,17 +45,15 @@ const routes: AuthorizedRoutes = [
     title: 'Change password page'
   },
   {
-    path: 'admin/create-new-client',
-    pathMatch: 'full',
+    path: 'admin',
     authorizedRoles: ['ADMIN'],
-    component: AddClientComponent,
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
     title: 'New client page'
   },
   {
-    path: 'customer/transfer-funds',
-    pathMatch: 'full',
+    path: 'customer',
     authorizedRoles: ['USER'],
-    component: TransferComponent,
+    loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule),
     title: 'Transfer funds page'
   }
 ];

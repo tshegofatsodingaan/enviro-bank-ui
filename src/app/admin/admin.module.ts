@@ -6,7 +6,25 @@ import {MaterialModule} from "../material/material.module";
 import {MatTableModule} from "@angular/material/table";
 import { AddClientComponent } from './components/add-client/add-client.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {AuthorizedRoute} from "../shared/security/authorized-routs";
+import {RouterModule} from "@angular/router";
 
+
+export const adminRoutes: AuthorizedRoute[] = [
+  {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full',
+  },
+  {
+    path: 'dashboard',
+    component: AdminDashboardComponent
+  },
+  {
+    path: 'create-new-client',
+    component: AddClientComponent
+  },
+];
 
 
 @NgModule({
@@ -19,7 +37,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     MaterialModule,
     MatTableModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forChild(adminRoutes),
   ],
   providers: [
     AdminService
