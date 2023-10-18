@@ -16,9 +16,8 @@ export class AdminDashboardComponent implements OnInit{
 
 
 
-  displayedColumns: string[] = ['name', 'surname', 'email', 'numberOfAccounts'];
+  displayedColumns: string[] = ['name', 'surname', 'email', 'numberOfAccounts', 'actions'];
   dataSource = new MatTableDataSource(this.customers);
-  // dataSource = this.customers;
 
   constructor(private adminService: AdminService, private authService: AuthService,
               private route: Router) {
@@ -34,15 +33,8 @@ export class AdminDashboardComponent implements OnInit{
 
   }
 
-  public generateInitials(): string {
-    const enviroBankSession = this.authService.session
-
-    const nameInitial = enviroBankSession.name.charAt(0).toUpperCase();
-    const surnameInitial = enviroBankSession.surname.charAt(0).toUpperCase();
-    return nameInitial + surnameInitial;
-  }
-
   addNewClient() {
     this.route.navigateByUrl('admin/create-new-client')
   }
+
 }
