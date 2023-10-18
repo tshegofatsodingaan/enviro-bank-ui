@@ -38,6 +38,12 @@ export class AuthService {
     })
   }
 
+  public updateUser(id: number): Observable<any> {
+    return this.http.put<any>('/api/v1/customers/' + id, {
+      headers: new HttpHeaders().set('Content-Type', 'application/json')
+    })
+  }
+
   public getAllUsers(): Observable<any>{
     return this.http.get<any>('/api/v1/users/all-users', {
       headers: new HttpHeaders().set('Content-Type', 'application/json')

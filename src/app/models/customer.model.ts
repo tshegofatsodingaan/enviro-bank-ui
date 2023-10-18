@@ -6,6 +6,7 @@ export class Customer {
   password = '';
   numberOfAccounts = '';
   phoneNumber = '';
+  actions = '';
   role = {
     id: 0,
     role: ''

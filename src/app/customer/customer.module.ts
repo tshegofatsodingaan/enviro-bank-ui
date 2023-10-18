@@ -8,6 +8,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {AuthorizedRoute} from "../shared/security/authorized-routs";
 import {RouterModule} from "@angular/router";
 import {SharedModule} from "../shared/shared.module";
+import { ViewAccountComponent } from './components/view-account/view-account.component';
 
 
 export const customerRoutes: AuthorizedRoute[] = [
@@ -30,7 +31,8 @@ export const customerRoutes: AuthorizedRoute[] = [
 @NgModule({
   declarations: [
     CustomerDashboardComponent,
-    TransferComponent
+    TransferComponent,
+    ViewAccountComponent
   ],
     imports: [
         CommonModule,

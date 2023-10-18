@@ -3,11 +3,8 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from "./shared/components/login/login.component";
 import { ResetPasswordComponent } from "./shared/components/reset-password/reset-password.component";
 import { ChangePasswordComponent } from "./shared/components/change-password/change-password.component";
-import { CustomerDashboardComponent } from "./customer/components/customer-dashboard/customer-dashboard.component";
-import { AdminDashboardComponent } from "./admin/components/admin-dashboard/admin-dashboard.component";
 import { AuthorizedRoutes } from "./shared/security/authorized-routs";
-import { AddClientComponent } from "./admin/components/add-client/add-client.component";
-import { TransferComponent } from "./customer/components/transfer/transfer.component";
+import { UpdateUserComponent } from "./shared/components/update-user/update-user.component";
 
 const routes: AuthorizedRoutes = [
   {
@@ -55,6 +52,12 @@ const routes: AuthorizedRoutes = [
     authorizedRoles: ['USER'],
     loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule),
     title: 'Transfer funds page'
+  },
+  {
+    path: 'update-details/:id',
+    pathMatch: 'full',
+    component: UpdateUserComponent,
+    title: 'Update User Details'
   }
 ];
 
