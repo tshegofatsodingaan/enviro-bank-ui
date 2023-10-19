@@ -58,8 +58,11 @@ export class AuthService {
   }
 
   redirectToLogin() {
-    sessionStorage.removeItem('enviro_bank_session');
+  sessionStorage.removeItem('enviro_bank_session');
   this.route.navigate(['']);
   }
 
+  redirectToChangePassword() {
+    this.route.navigateByUrl('change-password')
+  }
 }
