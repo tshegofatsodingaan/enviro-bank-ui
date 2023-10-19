@@ -1,1 +1,54 @@
-<p>view-profile works!</p>
+<app-navbar></app-navbar>
+<body>
+
+<div class="card-collection">
+  <div class="details-card-container">
+    <mat-card class="details-card">
+      <mat-card-title class="card-title">
+        <h2>Personal Information</h2>
+        <div class="avatar" style="">{{generateInitials()}}</div>
+      </mat-card-title>
+
+      <mat-card-content class="card-content">
+        <ul class="list-of-details">
+          <li>Account Number: </li>
+          <li>First Name: {{user?.name}}</li>
+          <li>Last Name: {{user?.surname}}</li>
+          <li>E-mail: {{user?.email}}</li>
+          <li>Phone Number: {{user?.phoneNumber}}</li>
+          <li>ID Number: {{user?.idNumber}}</li>
+
+        </ul>
+      </mat-card-content>
+
+    </mat-card>
+  </div>
+
+
+  <div class="account-cards-container">
+    <h2 class="accounts-heading">Accounts</h2>
+
+    <div class="account-cards" *ngFor="let account of accounts">
+      <mat-card class="account-card">
+        <mat-card-title class="account-card-title">{{account.accountType}} ACCOUNT</mat-card-title>
+
+        <mat-card-content>
+          <div class="account-card-content-container">
+            <div class="account-card-available-balance">
+              Available Balance: {{account.accountBalance | currency: 'R'}}
+            </div>
+            <div class="account-card-latest-balance">
+              Latest Balance: {{account.accountBalance | currency: 'R'}}
+              <button class="account-transfer-button" mat-flat-button (click)="transferFunds()">Transfer</button>
+            </div>
+          </div>
+        </mat-card-content>
+
+      </mat-card>
+    </div>
+  </div>
+
+</div>
+
+
+</body>
