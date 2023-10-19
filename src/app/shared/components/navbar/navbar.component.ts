@@ -28,4 +28,12 @@ export class NavbarComponent {
     return nameInitial + surnameInitial;
   }
 
+  public signOut(){
+    this.authService.redirectToLogin();
+  }
+
+  public changePassword(){
+    this.authService.redirectToChangePassword();
+  }
+
 }

@@ -17,6 +17,7 @@
   color: black;
   font-weight: normal;
   margin-left: 1300px;
+  cursor: pointer;
 
 }
 
@@ -58,8 +59,8 @@
 }
 
 
-.sub-menu-tag:hover {
-  font-size: 19px;
+.sub-menu-tag {
+  cursor: pointer;
 }
 
 
