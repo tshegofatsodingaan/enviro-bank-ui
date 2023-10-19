@@ -11,7 +11,6 @@ import {RouterModule} from "@angular/router";
 import {SharedModule} from "../shared/shared.module";
 
 
-
 export const adminRoutes: AuthorizedRoute[] = [
   {
     path: '',

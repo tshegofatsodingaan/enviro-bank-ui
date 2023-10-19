@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute} from "@angular/router";
-import {Customer} from "../../../models/customer.model";
+import {ActivatedRoute, Router} from "@angular/router";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-update-user',
@@ -14,12 +14,16 @@ export class UpdateUserComponent implements OnInit{
 
   updateUserFormGroup: FormGroup = new FormGroup<any>({})
 
+  durationInSeconds = 2;
+
+  snackBarMessage = 'User updated successfully!'
 
   constructor(private authService: AuthService,
               private formBuilder: FormBuilder,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,
+              private snackBar: MatSnackBar,
+              private route: Router) {
   }
-
 
 
   ngOnInit(): void {
@@ -51,7 +55,14 @@ export class UpdateUserComponent implements OnInit{
       }
       if(id){
         this.authService.updateUser(id, userDetails).subscribe(data => {
+          this.snackBar.open(this.snackBarMessage, 'Close', {
+            duration: this.durationInSeconds * 1000,
+            verticalPosition: 'top',
+            horizontalPosition: 'right',
+            panelClass: 'success-snackbar'
+          });
           console.log(data);
+          this.route.navigateByUrl('admin/dashboard')
         })
       }
 

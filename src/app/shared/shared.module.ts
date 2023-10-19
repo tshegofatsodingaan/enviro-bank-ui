@@ -8,6 +8,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {AuthService} from "./services/auth.service";
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UpdateUserComponent } from './components/update-user/update-user.component';
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { UpdateUserComponent } from './components/update-user/update-user.compon
   imports: [
     CommonModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSnackBarModule
   ],
   exports: [
     NavbarComponent
