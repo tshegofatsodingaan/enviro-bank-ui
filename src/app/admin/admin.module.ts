@@ -9,6 +9,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AuthorizedRoute} from "../shared/security/authorized-routs";
 import {RouterModule} from "@angular/router";
 import {SharedModule} from "../shared/shared.module";
+import { ViewAccountsComponent } from './components/view-accounts/view-accounts.component';
 
 
 export const adminRoutes: AuthorizedRoute[] = [
@@ -31,7 +32,8 @@ export const adminRoutes: AuthorizedRoute[] = [
 @NgModule({
   declarations: [
     AdminDashboardComponent,
-    AddClientComponent
+    AddClientComponent,
+    ViewAccountsComponent
   ],
   imports: [
     CommonModule,

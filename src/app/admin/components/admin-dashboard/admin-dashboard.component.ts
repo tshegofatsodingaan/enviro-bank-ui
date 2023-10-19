@@ -14,8 +14,6 @@ export class AdminDashboardComponent implements OnInit{
 
   customers: Customer[] = [];
 
-
-
   displayedColumns: string[] = ['name', 'surname', 'email', 'numberOfAccounts', 'actions'];
   dataSource = new MatTableDataSource(this.customers);
 
@@ -28,7 +26,7 @@ export class AdminDashboardComponent implements OnInit{
 
     this.adminService.getAllCustomers(enviro_bank_session.token).subscribe(data => {
       this.customers = data;
-      console.log("Customers Data",this.customers);
+      console.log("Typee: ", typeof this.customers)
     })
 
   }
