@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
+import {Account} from "../../models/account.model";
+import {Customer} from "../../models/customer.model";
 
 @Injectable({
   providedIn: 'root'
@@ -38,10 +40,15 @@ export class AuthService {
     })
   }
 
-  public updateUser(id: number): Observable<any> {
-    return this.http.put<any>('/api/v1/customers/' + id, {
+  public updateUser(id: string, userDetails: any): Observable<any> {
+    return this.http.put<any>('/api/v1/customers/' + id, JSON.stringify(userDetails),{
       headers: new HttpHeaders().set('Content-Type', 'application/json')
     })
+  }
+
+  public getUser(id: string): Observable<Customer[]> {
+    return this.http.get<Customer[]>('/api/v1/customers?id=' + id, {
+    });
   }
 
   public getAllUsers(): Observable<any>{

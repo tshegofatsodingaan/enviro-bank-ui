@@ -11,7 +11,7 @@ export class AdminService {
   constructor(private http: HttpClient) { }
 
   public getAllCustomers(token: string): Observable<Customer[]>{
-    return this.http.get<Customer[]>('/api/v1/customers');
+    return this.http.get<Customer[]>('/api/v1/customers/everyone');
   }
 
   public addNewClient(token: string, userDetails: any): Observable<any>{

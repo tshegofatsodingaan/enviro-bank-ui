@@ -19,14 +19,6 @@ export class CustomerDashboardComponent implements OnInit{
               private route: Router) {
   }
 
-  public generateInitials(): string {
-    const enviroBankSession = this.authService.session
-
-    const nameInitial = enviroBankSession.name.charAt(0).toUpperCase();
-    const surnameInitial = enviroBankSession.surname.charAt(0).toUpperCase();
-    console.log("initials: ", nameInitial + surnameInitial)
-    return nameInitial + surnameInitial;
-  }
 
   ngOnInit(): void {
     const enviro_bank_session_String = sessionStorage.getItem('enviro-bank_session');

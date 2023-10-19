@@ -7,7 +7,6 @@ import {MaterialModule} from "../material/material.module";
 import {ReactiveFormsModule} from "@angular/forms";
 import {AuthService} from "./services/auth.service";
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { UpdateClientComponent } from './components/update-client/update-client.component';
 import { UpdateUserComponent } from './components/update-user/update-user.component';
 
 
@@ -17,7 +16,6 @@ import { UpdateUserComponent } from './components/update-user/update-user.compon
     ChangePasswordComponent,
     ResetPasswordComponent,
     NavbarComponent,
-    UpdateClientComponent,
     UpdateUserComponent,
   ],
   imports: [

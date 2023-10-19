@@ -1,0 +1,35 @@
+body{
+  background-color: #F9F7F5;
+}
+
+.update-page-container{
+  padding: 110px 0 90px 0;
+}
+
+.container-heading{
+  font-weight: 500;
+  font-size: 25px;
+  padding-left: 20px;
+}
+
+.update-user-card{
+  width: 40%;
+  margin: auto;
+  padding: 20px;
+  border-radius: 0;
+}
+
+.action-button{
+
+}
+
+.form-button{
+  background-color: #03a9f4 !important;
+  width: 40%;
+  margin-left: auto;
+  margin-right: 10px;
+  border-radius: 0;
+  padding: 23px 0;
+  font-weight: 500;
+  font-size: 19px;
+}

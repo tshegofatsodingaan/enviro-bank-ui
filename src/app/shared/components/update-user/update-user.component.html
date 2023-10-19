@@ -1,1 +1,50 @@
-<p>update-user works!</p>
+<app-navbar></app-navbar>
+
+<body>
+
+  <div class="update-page-container">
+
+    <form [formGroup]="updateUserFormGroup" class="form-container">
+      <mat-card class="update-user-card">
+        <mat-card-title>
+          <h2 class="container-heading">Update</h2>
+        </mat-card-title>
+
+        <mat-card-content>
+          <mat-form-field class="enviro-bank-full-width">
+            <mat-label>First Name</mat-label>
+            <input type="text" matInput placeholder="First name" formControlName="name">
+          </mat-form-field>
+
+          <mat-form-field class="enviro-bank-full-width">
+            <mat-label>Last Name</mat-label>
+            <input type="text" matInput placeholder="Last name" formControlName="surname">
+          </mat-form-field>
+
+          <mat-form-field class="enviro-bank-full-width">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput placeholder="Email" formControlName="email">
+          </mat-form-field>
+
+          <mat-form-field class="enviro-bank-full-width">
+            <mat-label>Phone Number</mat-label>
+            <input type="text" matInput placeholder="Phone number" formControlName="phoneNumber">
+          </mat-form-field>
+
+          <mat-form-field class="enviro-bank-full-width">
+            <mat-label>ID Number</mat-label>
+            <input type="text" matInput placeholder="ID number" formControlName="idNumber">
+          </mat-form-field>
+        </mat-card-content>
+
+        <mat-card-actions class="action-button">
+          <button mat-flat-button color="primary" class="form-button" (click)="updateClientDetails()">Update</button>
+        </mat-card-actions>
+
+      </mat-card>
+
+    </form>
+
+  </div>
+
+</body>
