@@ -10,6 +10,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { UpdateUserComponent } from './components/update-user/update-user.component';
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { ViewProfileComponent } from './components/view-profile/view-profile.component';
+import {RouterLink} from "@angular/router";
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ViewProfileComponent } from './components/view-profile/view-profile.com
     CommonModule,
     MaterialModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    RouterLink
   ],
   exports: [
     NavbarComponent

@@ -9,6 +9,8 @@ import {AuthService} from "../../services/auth.service";
 export class NavbarComponent {
 
   isSubMenuOpen = false;
+  enviroBankSession = this.authService.session
+  id = this.enviroBankSession.id;
 
   toggleMenu(){
     this.isSubMenuOpen = !this.isSubMenuOpen;
@@ -20,11 +22,8 @@ export class NavbarComponent {
 
 
   public generateInitials(): string {
-    const enviroBankSession = this.authService.session
-
-    const nameInitial = enviroBankSession.name.charAt(0).toUpperCase();
-    const surnameInitial = enviroBankSession.surname.charAt(0).toUpperCase();
-    console.log("initials: ", nameInitial + surnameInitial)
+    const nameInitial = this.enviroBankSession.name.charAt(0).toUpperCase();
+    const surnameInitial = this.enviroBankSession.surname.charAt(0).toUpperCase();
     return nameInitial + surnameInitial;
   }
 
@@ -34,6 +33,10 @@ export class NavbarComponent {
 
   public changePassword(){
     this.authService.redirectToChangePassword();
+  }
+
+  public viewProfile(){
+    this.authService.viewProfile();
   }
 
 }

@@ -46,8 +46,8 @@ export class AuthService {
     })
   }
 
-  public getUser(id: string): Observable<Customer[]> {
-    return this.http.get<Customer[]>('/api/v1/customers?id=' + id, {
+  public getUser(id: string): Observable<Customer> {
+    return this.http.get<Customer>('/api/v1/customers?id=' + id, {
     });
   }
 
@@ -57,6 +57,12 @@ export class AuthService {
     })
   }
 
+  public getAllAccounts(id: string, params: { size: number; page: number }): Observable<Account[]> {
+    return this.http.get<Account[]>('/api/v1/accounts?id=' + id, {
+      params, // for pagination
+    });
+  }
+
   redirectToLogin() {
   sessionStorage.removeItem('enviro_bank_session');
   this.route.navigate(['']);
@@ -64,5 +70,9 @@ export class AuthService {
 
   redirectToChangePassword() {
     this.route.navigateByUrl('change-password')
+  }
+
+  viewProfile() {
+    this.route.navigateByUrl('view-profile/:id')
   }
 }

@@ -7,7 +7,7 @@
   <div class="sub-menu-wrap" id="subMenu" [ngClass]="{'active': isSubMenuOpen}">
     <div class="sub-menu">
       <div class="menu-info">
-        <p class="sub-menu-tag">Profile</p>
+        <p class="sub-menu-tag" [routerLink]="['/view-profile', id]">Profile</p>
         <p class="sub-menu-tag" (click)="changePassword()">Change Password</p>
         <p class="sub-menu-tag" (click)="signOut()">Sign Out</p>
       </div>

@@ -5,6 +5,7 @@ import { ResetPasswordComponent } from "./shared/components/reset-password/reset
 import { ChangePasswordComponent } from "./shared/components/change-password/change-password.component";
 import { AuthorizedRoutes } from "./shared/security/authorized-routs";
 import { UpdateUserComponent } from "./shared/components/update-user/update-user.component";
+import {ViewProfileComponent} from "./shared/components/view-profile/view-profile.component";
 
 const routes: AuthorizedRoutes = [
   {
@@ -27,31 +28,37 @@ const routes: AuthorizedRoutes = [
     path: 'admin',
     authorizedRoles: ['ADMIN'],
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
-    title: 'Admin dashboard'
+    title: 'Admin Dashboard'
   },
   {
     path: 'reset-password',
     pathMatch: 'full',
     component: ResetPasswordComponent,
-    title: 'Reset password page'
+    title: 'Reset Password Page'
   },
   {
     path: 'change-password',
     pathMatch: 'full',
     component: ChangePasswordComponent,
-    title: 'Change password page'
+    title: 'Change Password Page'
+  },
+  {
+    path: 'view-profile/:id',
+    pathMatch: 'full',
+    component: ViewProfileComponent,
+    title: 'User Profile Page'
   },
   {
     path: 'admin',
     authorizedRoles: ['ADMIN'],
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
-    title: 'New client page'
+    title: 'New Client Page'
   },
   {
     path: 'customer',
     authorizedRoles: ['USER'],
     loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule),
-    title: 'Transfer funds page'
+    title: 'Transfer Funds Page'
   },
   {
     path: 'update-details/:id',

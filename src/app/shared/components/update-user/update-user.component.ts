@@ -13,9 +13,7 @@ export class UpdateUserComponent implements OnInit{
 
 
   updateUserFormGroup: FormGroup = new FormGroup<any>({})
-
   durationInSeconds = 2;
-
   snackBarMessage = 'User updated successfully!'
 
   constructor(private authService: AuthService,

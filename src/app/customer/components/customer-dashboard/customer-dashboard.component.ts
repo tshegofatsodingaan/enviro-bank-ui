@@ -28,6 +28,9 @@ export class CustomerDashboardComponent implements OnInit{
 
       this.customerService.getAllAccounts(enviro_bank_session.token, enviro_bank_session.id, {size: 3, page: 0}).subscribe(data => {
         this.accounts = data;
+        console.log('Customer Accounts', this.accounts);
+        console.log('Customer Accounts type',typeof this.accounts);
+
       })
     }
     }
