@@ -9,6 +9,7 @@ import {AuthService} from "./services/auth.service";
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UpdateUserComponent } from './components/update-user/update-user.component';
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { ViewProfileComponent } from './components/view-profile/view-profile.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
     ResetPasswordComponent,
     NavbarComponent,
     UpdateUserComponent,
+    ViewProfileComponent,
   ],
   imports: [
     CommonModule,
