@@ -2,6 +2,20 @@ body{
   background-color: #F9F7F5;
 }
 
+.contained{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.update-btn{
+  padding: 10px 20px;
+  margin-right: 25px;
+  border-style: solid;
+  border-color: #03a9f4;
+  border-width: thin;
+}
+
 .list-of-details{
   list-style-type: none;
 }
@@ -22,10 +36,9 @@ body{
 }
 
 .details-card-container{
-  background-color: yellow;
+  padding-top: 120px;
   width: 80%;
   margin: auto;
-  /*padding: 30px 45px;*/
 }
 
 .details-card{
