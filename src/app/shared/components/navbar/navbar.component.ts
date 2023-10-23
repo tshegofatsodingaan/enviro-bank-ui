@@ -35,8 +35,5 @@ export class NavbarComponent {
     this.authService.redirectToChangePassword();
   }
 
-  public viewProfile(){
-    this.authService.viewProfile();
-  }
 
 }

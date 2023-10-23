@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+<body>
+  <div class="personal-details-container">
+    <mat-card class="personal-details-card">
+      <mat-card-content>
+        <div class="user-details">
+          <div class="avatar">{{generateInitials()}}</div>
+          <div class="user-name">{{customer?.name | titlecase}} {{customer?.surname | titlecase}}</div>
+          <div class="user-email">{{customer?.email}}</div>
+          <div class="account-number">1234</div>
+        </div>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
+  <div class="account-details-container">
+    <mat-card class="accounts-card" >
+      <mat-card-title>Accounts</mat-card-title>
+      <hr />
+      <mat-card-content>
+        <div *ngFor="let account of accounts">
+          <div>{{account.accountType}} ACCOUNT</div>
+          <div>Available Balance: {{account.accountBalance | currency: 'R'}}</div>
+          <hr />
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
+
+
+</body>

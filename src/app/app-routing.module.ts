@@ -6,6 +6,7 @@ import { ChangePasswordComponent } from "./shared/components/change-password/cha
 import { AuthorizedRoutes } from "./shared/security/authorized-routs";
 import { UpdateUserComponent } from "./shared/components/update-user/update-user.component";
 import {ViewProfileComponent} from "./shared/components/view-profile/view-profile.component";
+import {ViewAccountsComponent} from "./shared/components/view-accounts/view-accounts.component";
 
 const routes: AuthorizedRoutes = [
   {
@@ -41,6 +42,12 @@ const routes: AuthorizedRoutes = [
     pathMatch: 'full',
     component: ChangePasswordComponent,
     title: 'Change Password Page'
+  },
+  {
+    path: 'view-account/:id',
+    pathMatch: 'full',
+    component: ViewAccountsComponent,
+    title: 'User Accounts Page'
   },
   {
     path: 'view-profile/:id',

@@ -27,10 +27,10 @@ export class AuthorizedUserGuard {
           return true;
         }
       }
-      //authService.signOut();
+      authService.redirectToLogin();
       return false;
     } else {
-      //authService.signOut();
+      authService.redirectToLogin();
       return false;
     }
   }
