@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import {Customer} from "../../../models/customer.model";
 import {Account} from "../../../models/account.model";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-view-accounts',
@@ -13,40 +13,49 @@ export class ViewAccountsComponent implements OnInit{
 
   customer: Customer | undefined;
   accounts: Account[] = [];
+  initials = '';
+  enviroBankSession = this.authService.session;
 
   constructor(private authService: AuthService,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,
+              private route: Router) {
   }
 
   ngOnInit(): void {
-    this.getCustomer()
-    let id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.getCustomer();
     this.getAllAccounts();
+
   }
 
-  enviroBankSession = this.authService.session;
-
-  public generateInitials(): string {
-    const nameInitial = this.enviroBankSession.name.charAt(0).toUpperCase();
-    const surnameInitial = this.enviroBankSession.surname.charAt(0).toUpperCase();
-    return nameInitial + surnameInitial;
-  }
 
 
 
   public getCustomer(){
-    this.authService.getUser(this.enviroBankSession.id).subscribe( data => {
-      this.customer = data
-      console.log(this.customer)
-      }
-    );
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+    if(id){
+      this.authService.getUser(id).subscribe( data => {
+        this.customer = data
+        const name = this.customer.name.charAt(0).toUpperCase();
+        const surname = this.customer.surname.charAt(0).toUpperCase();
+        this.initials =  name + surname
+      });
+    }
+
   }
 
   public getAllAccounts() {
-    this.authService.getAllAccounts(this.enviroBankSession.id, {size: 3, page: 0}).subscribe( data => {
-      this.accounts = data
-      console.log(this.accounts)
-    })
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+    if(id){
+      this.authService.getAllAccounts(id, {size: 3, page: 0}).subscribe( data => {
+        this.accounts = data
+        console.log(this.accounts)
+      });
+    }
+
+  }
+
+  transferFunds() {
+    this.route.navigateByUrl('customer/transfer-funds');
   }
 
 

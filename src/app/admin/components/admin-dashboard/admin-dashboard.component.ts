@@ -26,7 +26,6 @@ export class AdminDashboardComponent implements OnInit{
 
     this.adminService.getAllCustomers(enviro_bank_session.token).subscribe(data => {
       this.customers = data;
-      console.log(this.customers)
     })
 
   }

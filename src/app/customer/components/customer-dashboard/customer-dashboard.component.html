@@ -6,7 +6,7 @@
 
     <div class="account-cards" *ngFor="let account of accounts">
       <mat-card class="account-card">
-        <mat-card-title class="account-card-title" [routerLink]="['/view-account', account.id]">{{account.accountType}} ACCOUNT</mat-card-title>
+        <mat-card-title class="account-card-title">{{account.accountType}} ACCOUNT</mat-card-title>
 
         <mat-card-content>
           <div class="account-card-content-container">

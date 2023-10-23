@@ -12,7 +12,41 @@ body{
   border-radius: 0;
   font-weight: 500;
   font-size: 20px;
+}
 
+.contained{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.update-btn{
+  padding: 10px 20px;
+  margin-right: 25px;
+  border-style: solid;
+  border-color: #03a9f4;
+  border-width: thin;
+}
+
+.details-card-container{
+  padding-top: 50px;
+  width: 90%;
+  margin: auto;
+
+}
+
+.details-card{
+  border-radius: 0;
+}
+
+.card-title{
+  padding-left: 20px;
+  font-weight: 500;
+}
+
+.card-content{
+  padding: 0 0 0 250px;
+  font-size: 20px;
 }
 
 .avatar{
@@ -28,39 +62,52 @@ body{
   border-width: thin;
 }
 
-.user-name{
-  padding-top: 20px;
-}
-
-.user-email{
-  padding-top: 20px;
-}
-
-.account-number{
-  padding-top: 20px;
-}
-
-.accounts-card{
-  border-radius: 0;
-  width: 30%;
-  padding: 20px 0 40px 20px;
-
+.account-card-container{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
 }
 
 .account-details-container{
-  padding: 50px 0 0 100px;
+  padding-bottom: 20px;
+  font-weight: 400;
 }
 
-hr{
-  border: 0;
-  display:block;
-  width: 100%;
-  background-color: white;
-  height: 1px;
+.account-card-title{
+  font-size: 20px;
+  padding: 10px 0 10px 15px;
 }
 
-.user-details{
+.account-card-content{
+  font-size: 18px;
+}
+
+.account-card {
+  padding: 0 0 20px;
+  background-color: #FFFFFF;
+  border-radius: 0;
+}
+
+.account-card-content-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 }
+
+.account-card-available-balance {
+  padding: 10px 10px 0 0;
+}
+
+.account-card-latest-balance{
+  padding: 3px 0 0 300px;
+}
+
+.account-transfer-button{
+  margin: 0 0 0 500px;
+  border-style: solid;
+  border-radius: 0;
+  border-color: #03a9f4;
+  padding: 10px 40px;
+  font-size: 16px;
+}
+

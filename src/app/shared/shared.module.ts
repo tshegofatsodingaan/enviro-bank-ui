@@ -11,6 +11,7 @@ import { UpdateUserComponent } from './components/update-user/update-user.compon
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { ViewProfileComponent } from './components/view-profile/view-profile.component';
 import {RouterLink} from "@angular/router";
+import { ViewTransactionsComponent } from './components/view-transactions/view-transactions.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import {RouterLink} from "@angular/router";
     NavbarComponent,
     UpdateUserComponent,
     ViewProfileComponent,
+    ViewTransactionsComponent,
   ],
   imports: [
     CommonModule,

@@ -7,6 +7,7 @@ import { AuthorizedRoutes } from "./shared/security/authorized-routs";
 import { UpdateUserComponent } from "./shared/components/update-user/update-user.component";
 import {ViewProfileComponent} from "./shared/components/view-profile/view-profile.component";
 import {ViewAccountsComponent} from "./shared/components/view-accounts/view-accounts.component";
+import {ViewTransactionsComponent} from "./shared/components/view-transactions/view-transactions.component";
 
 const routes: AuthorizedRoutes = [
   {
@@ -63,7 +64,7 @@ const routes: AuthorizedRoutes = [
   },
   {
     path: 'customer',
-    authorizedRoles: ['USER'],
+    permitAll: true,
     loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule),
     title: 'Transfer Funds Page'
   },
@@ -72,6 +73,12 @@ const routes: AuthorizedRoutes = [
     pathMatch: 'full',
     component: UpdateUserComponent,
     title: 'Update User Details'
+  },
+  {
+    path: 'view-transactions/:id',
+    pathMatch: 'full',
+    component: ViewTransactionsComponent,
+    title: 'Account Transactions'
   }
 ];
 

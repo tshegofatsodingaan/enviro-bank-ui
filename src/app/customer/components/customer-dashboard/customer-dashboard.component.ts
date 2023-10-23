@@ -15,7 +15,6 @@ export class CustomerDashboardComponent implements OnInit{
 
 
   constructor(private customerService: CustomerService,
-              private authService: AuthService,
               private route: Router) {
   }
 
