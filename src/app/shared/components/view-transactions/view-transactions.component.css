@@ -1,0 +1,34 @@
+body{
+  background-color: #F9F7F5;
+}
+
+.avatar{
+  font-size: 26px;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  border-color: #03a9f4;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-style: solid;
+  border-width: thin;
+}
+
+.personal-details-container{
+  padding-top: 30px;
+}
+
+.details-card{
+  width: 90%;
+  margin: auto;
+}
+
+.personal-details{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 19px;
+
+}

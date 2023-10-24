@@ -6,7 +6,7 @@
         <h2>Personal Information</h2>
 
         <div class="contained">
-          <div class="avatar" style="">{{initials}}</div>
+          <div class="avatar">{{initials}}</div>
           <button class="update-btn" mat-flat-button [routerLink]="['/update-details', customer?.id]">Update</button>
         </div>
 
@@ -32,7 +32,7 @@
     <div class="account-details-container" *ngFor="let account of accounts">
 
       <mat-card class="account-card">
-        <mat-card-title class="account-card-title" [routerLink]="['/view-transactions', account.id]">
+        <mat-card-title class="account-card-title" [routerLink]="['/view-transactions', account.accountNum, customer?.id]">
           {{account.accountType}} ACCOUNT
         </mat-card-title>
 

@@ -75,7 +75,7 @@ const routes: AuthorizedRoutes = [
     title: 'Update User Details'
   },
   {
-    path: 'view-transactions/:id',
+    path: 'view-transactions/:accountNumber/:id',
     pathMatch: 'full',
     component: ViewTransactionsComponent,
     title: 'Account Transactions'

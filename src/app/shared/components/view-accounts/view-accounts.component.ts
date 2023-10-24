@@ -28,8 +28,6 @@ export class ViewAccountsComponent implements OnInit{
   }
 
 
-
-
   public getCustomer(){
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     if(id){
@@ -40,7 +38,6 @@ export class ViewAccountsComponent implements OnInit{
         this.initials =  name + surname
       });
     }
-
   }
 
   public getAllAccounts() {

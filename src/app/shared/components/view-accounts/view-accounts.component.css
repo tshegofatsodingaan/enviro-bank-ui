@@ -6,6 +6,11 @@ body{
   padding-top: 40px;
 }
 
+.list-of-details{
+  list-style-type: none;
+}
+
+
 .personal-details-card{
   width: 90%;
   margin: auto;
@@ -77,6 +82,7 @@ body{
 .account-card-title{
   font-size: 20px;
   padding: 10px 0 10px 15px;
+  cursor: pointer;
 }
 
 .account-card-content{
