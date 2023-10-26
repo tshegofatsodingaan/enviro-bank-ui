@@ -10,9 +10,21 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { UpdateUserComponent } from './components/update-user/update-user.component';
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { ViewProfileComponent } from './components/view-profile/view-profile.component';
-import {RouterLink} from "@angular/router";
+import {RouterLink, RouterModule} from "@angular/router";
 import { ViewTransactionsComponent } from './components/view-transactions/view-transactions.component';
+import {AuthorizedRoute} from "./security/authorized-routs";
+import {TransferComponent} from "./components/transfer/transfer.component";
+import {customerRoutes} from "../customer/customer.module";
+import { DialogBoxComponent } from './components/dialog-box/dialog-box.component';
 
+
+export const sharedRoutes: AuthorizedRoute[] = [
+  {
+    path: 'transfer-funds',
+    component: TransferComponent
+  }
+
+];
 
 @NgModule({
   declarations: [
@@ -23,11 +35,14 @@ import { ViewTransactionsComponent } from './components/view-transactions/view-t
     UpdateUserComponent,
     ViewProfileComponent,
     ViewTransactionsComponent,
+    TransferComponent,
+    DialogBoxComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
     ReactiveFormsModule,
+    RouterModule.forChild(sharedRoutes),
     MatSnackBarModule,
     RouterLink
   ],

@@ -33,7 +33,7 @@ export class CustomerDashboardComponent implements OnInit{
 
 
   transferFunds() {
-    this.route.navigateByUrl('customer/transfer-funds');
+    this.route.navigateByUrl('shared/transfer-funds');
   }
 
 }

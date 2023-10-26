@@ -54,7 +54,7 @@ export class ViewAccountsComponent implements OnInit{
   }
 
   transferFunds() {
-    this.route.navigateByUrl('customer/transfer-funds');
+    this.route.navigateByUrl('shared/transfer-funds');
   }
 
 

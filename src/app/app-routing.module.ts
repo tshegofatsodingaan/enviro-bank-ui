@@ -63,9 +63,9 @@ const routes: AuthorizedRoutes = [
     title: 'New Client Page'
   },
   {
-    path: 'customer',
+    path: 'shared',
     permitAll: true,
-    loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule),
+    loadChildren: () => import('./shared/shared.module').then(m => m.SharedModule),
     title: 'Transfer Funds Page'
   },
   {
