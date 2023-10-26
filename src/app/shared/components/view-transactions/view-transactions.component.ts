@@ -4,6 +4,7 @@ import {ActivatedRoute} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
 import {Account} from "../../../models/account.model";
 import {SharedService} from "../../services/shared.service";
+import {Transactions} from "../../../models/transactions.model";
 
 @Component({
   selector: 'app-view-transactions',
@@ -14,6 +15,7 @@ export class ViewTransactionsComponent implements OnInit{
 
   customer: Customer | undefined;
   accounts: Account[] = [];
+  transactions: Transactions[] = [];
   // account: Account | undefined;
   initials = '';
 
@@ -28,6 +30,7 @@ export class ViewTransactionsComponent implements OnInit{
     this.getAccountByAccountNumber();
     this.sharedService.getAccount();
     console.log(this.sharedService.getAccount());
+    this.getAllTransactions();
   }
 
   public getUser(){
@@ -58,6 +61,16 @@ export class ViewTransactionsComponent implements OnInit{
         this.accounts = data
         console.log("Account: ", typeof this.accounts)
       });
+    }
+  }
+
+  public getAllTransactions(){
+    let accountNum = this.activatedRoute.snapshot.paramMap.get('accountNumber');
+    if (accountNum) {
+      this.authService.getAllTransactions(accountNum).subscribe(data => {
+        this.transactions = data;
+        console.log(this.transactions);
+      })
     }
   }
 

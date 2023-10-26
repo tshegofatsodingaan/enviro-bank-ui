@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {Router} from "@angular/router";
 import {Account} from "../../models/account.model";
 import {Customer} from "../../models/customer.model";
+import {Transactions} from "../../models/transactions.model";
 
 @Injectable({
   providedIn: 'root'
@@ -67,6 +68,10 @@ export class AuthService {
     return this.http.get<Account[]>('/api/v1/accounts?accountNum=' + accountNumber);
   }
 
+  public getAllTransactions(accountNumber: string): Observable<Transactions[]>{
+    return this.http.get<Transactions[]>('/api/v1/transactions/' + accountNumber);
+  }
+
   redirectToLogin() {
   sessionStorage.removeItem('enviro_bank_session');
   this.route.navigate(['']);
@@ -76,7 +81,5 @@ export class AuthService {
     this.route.navigateByUrl('change-password')
   }
 
-  viewProfile() {
-    this.route.navigateByUrl('view-profile/:id')
-  }
+
 }

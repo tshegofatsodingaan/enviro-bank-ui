@@ -41,8 +41,13 @@
             <div>Available Balance: {{account.accountBalance}}</div>
             <div>Latest Balance: {{account.accountBalance}}</div>
           </div>
+          <hr />
           <div class="account-specific-transactions">
-
+            <h3>Transactions</h3>
+            <div *ngFor="let transaction of transactions">
+              <div>{{transaction.dateOfTransaction}}</div>
+              <div>Transfer To: Current Account</div>
+            </div>
           </div>
         </mat-card-content>
       </mat-card>
