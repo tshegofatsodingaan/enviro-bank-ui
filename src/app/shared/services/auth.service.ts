@@ -63,6 +63,10 @@ export class AuthService {
     });
   }
 
+  public getOneAccount(accountNumber: string): Observable<Account[]> {
+    return this.http.get<Account[]>('/api/v1/accounts?accountNum=' + accountNumber);
+  }
+
   redirectToLogin() {
   sessionStorage.removeItem('enviro_bank_session');
   this.route.navigate(['']);

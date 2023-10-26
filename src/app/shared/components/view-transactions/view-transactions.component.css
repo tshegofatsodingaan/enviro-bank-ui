@@ -22,6 +22,8 @@ body{
 .details-card{
   width: 90%;
   margin: auto;
+  border-radius: 0;
+
 }
 
 .personal-details{
@@ -31,4 +33,53 @@ body{
   font-weight: 500;
   font-size: 19px;
 
+}
+
+.accounts-container{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin-left: 84px;
+  margin-top: 60px;
+
+}
+
+.accounts-card{
+  font-weight: 500;
+  border-radius: 0;
+
+}
+
+.card-heading{
+  padding: 0 20px 0 20px;
+}
+
+.card-content{
+  padding-top: 10px;
+}
+
+.account-details{
+  padding-bottom: 35px;
+}
+
+.account-type-heading{
+  padding-bottom: 10px;
+}
+
+
+.user-bank-details{
+  display: flex;
+  flex-direction: row;
+}
+
+.account-transaction-container{
+  width: 55%;
+  margin: auto;
+  height: 60vh;
+  margin-top: 60px;
+}
+
+.transactions-card{
+  border-radius: 0;
+  height: 60vh;
 }

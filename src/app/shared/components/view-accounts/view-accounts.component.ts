@@ -3,6 +3,7 @@ import {AuthService} from "../../services/auth.service";
 import {Customer} from "../../../models/customer.model";
 import {Account} from "../../../models/account.model";
 import {ActivatedRoute, Router} from "@angular/router";
+import {SharedService} from "../../services/shared.service";
 
 @Component({
   selector: 'app-view-accounts',
@@ -18,7 +19,8 @@ export class ViewAccountsComponent implements OnInit{
 
   constructor(private authService: AuthService,
               private activatedRoute: ActivatedRoute,
-              private route: Router) {
+              private route: Router,
+              private sharedService: SharedService) {
   }
 
   ngOnInit(): void {
@@ -44,11 +46,11 @@ export class ViewAccountsComponent implements OnInit{
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     if(id){
       this.authService.getAllAccounts(id, {size: 3, page: 0}).subscribe( data => {
-        this.accounts = data
+        this.accounts = data;
+        this.sharedService.setAccount(this.accounts);
         console.log(this.accounts)
       });
     }
-
   }
 
   transferFunds() {
