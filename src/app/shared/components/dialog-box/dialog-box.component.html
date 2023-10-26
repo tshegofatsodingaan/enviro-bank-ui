@@ -1,0 +1,12 @@
+<div class="dialogbox">
+  <h1 class="dialogbox__title" mat-dialog-title>{{dialogDetails.title}}</h1>
+
+  <div class="dialogbox__content" mat-dialog-content>
+    <p>{{dialogDetails.content}}</p>
+  </div>
+
+  <div class="dialogbox__button" mat-dialog-actions>
+    <button class="dialogbox__button--ok" mat-button [mat-dialog-close]="true" (click)="onClickContinue()">Continue</button>
+    <button class="dialogbox__button--cancel" mat-button [mat-dialog-close]="false" (click)="onClickCancel()">Cancel</button>
+  </div>
+</div>
