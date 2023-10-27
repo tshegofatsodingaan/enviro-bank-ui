@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AdminService} from "../../services/admin.service";
 import {AuthService} from "../../../shared/services/auth.service";
 import {Router} from "@angular/router";
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import {DialogBoxComponent} from "../../../shared/components/dialog-box/dialog-box.component";
 
 @Component({
   selector: 'app-add-client',
@@ -16,7 +18,8 @@ export class AddClientComponent implements OnInit{
   constructor(private formBuilder: FormBuilder,
               private adminService: AdminService,
               private authService: AuthService,
-              private route: Router) {
+              private route: Router,
+              private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -29,6 +32,18 @@ export class AddClientComponent implements OnInit{
     })
   }
 
+  dialogPopUp(){
+    const mdConfig = new MatDialogConfig();
+    mdConfig.width = '400px';
+    mdConfig.data = {
+      title: 'Confirm',
+      content: 'Click continue to add new client.'
+    }
+    const dialogReference = this.dialog.open(DialogBoxComponent, mdConfig);
+    dialogReference.afterClosed().subscribe(result =>{
+      this.route.navigateByUrl('admin/dashboard');
+    })
+  }
 
   addNewClient() {
     if(this.addNewClientFormGroup.valid){
@@ -43,8 +58,8 @@ export class AddClientComponent implements OnInit{
 
 
       this.adminService.addNewClient(enviro_bank_session.token, userDetails).subscribe(data => {
-        console.log(data);
-        this.route.navigateByUrl('admin/dashboard');
+        this.dialogPopUp();
+
       });
 
     }

@@ -33,12 +33,23 @@ export class ChangePasswordComponent implements OnInit{
       }
 
       const userToken = this.activatedRoute.snapshot.queryParams['token'];
-      this.authService.changePassword(passwords, userToken).subscribe((error) => {
+      if(userToken == undefined){
+        const tokenSession = this.authService.session;
+        console.log("Token Session: ", tokenSession.token)
+        this.authService.changePassword(passwords, tokenSession.token).subscribe((error) => {
+          if (error.status === 403){
+            this.uniquePassword = true
+          }
+        })
+      } else{
 
-        if (error.status === 403){
-          this.uniquePassword = true
-        }
-      })
+        this.authService.changePassword(passwords, userToken).subscribe((error) => {
+
+          if (error.status === 403){
+            this.uniquePassword = true
+          }
+        })
+      }
     }
   }
 

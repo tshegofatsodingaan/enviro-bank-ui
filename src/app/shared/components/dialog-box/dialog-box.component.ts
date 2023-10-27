@@ -11,7 +11,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 export class DialogBoxComponent {
 
   public dialogDetails: { title?: string, content?: string } = {};
-  snackBarMessage = 'Funds transferred successfully!';
+  snackBarMessage = 'Success!';
   durationInSeconds = 2;
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
               private router: Router,
@@ -20,7 +20,6 @@ export class DialogBoxComponent {
   }
 
   onClickCancel() {
-    this.router.navigateByUrl('/shared/transfer-funds');
   }
 
   onClickContinue() {

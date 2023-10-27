@@ -3,6 +3,8 @@ import {AuthService} from "../../services/auth.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import {DialogBoxComponent} from "../dialog-box/dialog-box.component";
 
 @Component({
   selector: 'app-update-user',
@@ -20,7 +22,8 @@ export class UpdateUserComponent implements OnInit{
               private formBuilder: FormBuilder,
               private activatedRoute: ActivatedRoute,
               private snackBar: MatSnackBar,
-              private route: Router) {
+              private route: Router,
+              private dialog: MatDialog) {
   }
 
 
@@ -41,6 +44,17 @@ export class UpdateUserComponent implements OnInit{
     }
   }
 
+  dialogPopUp(){
+    const mdConfig = new MatDialogConfig();
+    mdConfig.width = '400px';
+    mdConfig.data = {
+      title: 'Confirm',
+      content: 'Are you sure you want to proceed with this update?'
+    }
+    const dialogReference = this.dialog.open(DialogBoxComponent, mdConfig);
+
+  }
+
   updateClientDetails(){
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     if(this.updateUserFormGroup.valid){
@@ -51,16 +65,17 @@ export class UpdateUserComponent implements OnInit{
         phoneNumber: this.updateUserFormGroup.get('phoneNumber')?.value as string,
         idNumber: this.updateUserFormGroup.get('idNumber')?.value as string
       }
+      this.dialogPopUp();
       if(id){
         this.authService.updateUser(id, userDetails).subscribe(data => {
-          this.snackBar.open(this.snackBarMessage, 'Close', {
-            duration: this.durationInSeconds * 1000,
-            verticalPosition: 'top',
-            horizontalPosition: 'right',
-            panelClass: 'success-snackbar'
-          });
+          // this.snackBar.open(this.snackBarMessage, 'Close', {
+          //   duration: this.durationInSeconds * 1000,
+          //   verticalPosition: 'top',
+          //   horizontalPosition: 'right',
+          //   panelClass: 'success-snackbar'
+          // });
           console.log(data);
-          this.route.navigateByUrl('admin/dashboard')
+          // this.route.navigateByUrl('admin/dashboard')
         })
       }
 
