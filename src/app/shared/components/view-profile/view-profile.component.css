@@ -84,6 +84,8 @@ body{
 
 .card-collection{
   padding-top: 50px;
+  width: 80%;
+  margin: auto;
 }
 
 .account-transfer-button{

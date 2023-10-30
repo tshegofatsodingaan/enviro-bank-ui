@@ -16,7 +16,6 @@ export class ViewTransactionsComponent implements OnInit{
   customer: Customer | undefined;
   accounts: Account[] = [];
   transactions: Transactions[] = [];
-  // account: Account | undefined;
   initials = '';
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -29,7 +28,6 @@ export class ViewTransactionsComponent implements OnInit{
     this.getAllAccounts();
     this.getAccountByAccountNumber();
     this.sharedService.getAccount();
-    console.log(this.sharedService.getAccount());
     this.getAllTransactions();
   }
 
@@ -59,7 +57,7 @@ export class ViewTransactionsComponent implements OnInit{
     if(accountNum){
       this.authService.getOneAccount(accountNum).subscribe(data => {
         this.accounts = data
-        console.log("Account: ", typeof this.accounts)
+        console.log(this.accounts);
       });
     }
   }
@@ -69,7 +67,6 @@ export class ViewTransactionsComponent implements OnInit{
     if (accountNum) {
       this.authService.getAllTransactions(accountNum).subscribe(data => {
         this.transactions = data;
-        console.log(this.transactions);
       })
     }
   }

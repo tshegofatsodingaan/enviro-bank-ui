@@ -15,6 +15,7 @@ export class ViewAccountsComponent implements OnInit{
   customer: Customer | undefined;
   accounts: Account[] = [];
   initials = '';
+  viewAccounts = false;
   enviroBankSession = this.authService.session;
 
   constructor(private authService: AuthService,
@@ -47,8 +48,10 @@ export class ViewAccountsComponent implements OnInit{
     if(id){
       this.authService.getAllAccounts(id, {size: 3, page: 0}).subscribe( data => {
         this.accounts = data;
+        if(this.accounts.length != 0){
+          this.viewAccounts = true
+        }
         this.sharedService.setAccount(this.accounts);
-        console.log(this.accounts)
       });
     }
   }

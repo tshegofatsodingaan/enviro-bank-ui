@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit{
 
 
   public signIn(): void {
+    sessionStorage.removeItem('enviro-bank_session')
     if(this.signInFormGroup.valid){
       this.authService.signIn(this.signInFormGroup.value).subscribe((data) => {
         sessionStorage.setItem("enviro-bank_session", JSON.stringify(data));

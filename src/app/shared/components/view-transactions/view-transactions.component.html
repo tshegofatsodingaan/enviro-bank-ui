@@ -1,61 +1,58 @@
 <app-navbar></app-navbar>
 
 <body>
-  <div class="personal-details-container">
-    <mat-card class="details-card">
-      <mat-card-content class="personal-details">
-        <div class="avatar">{{initials}}</div>
-        <p>{{customer?.name | titlecase}} {{customer?.surname | titlecase}}</p>
-        <p>{{customer?.email}}</p>
-        <p>09876543</p>
-      </mat-card-content>
-    </mat-card>
-  </div>
-
-  <div class="user-bank-details">
-    <div class="accounts-container">
-      <mat-card class="accounts-card">
-        <mat-card-title class="card-heading">
-          <h2>Accounts</h2>
-          <hr/>
-        </mat-card-title>
-
-        <mat-card-content class="card-content">
-          <div class="account-details" *ngFor="let account of accounts">
-            <!--          <hr/>-->
-            <div class="account-type-heading">{{account.accountType}} ACCOUNT</div>
-            <div>Available Balance: {{account.accountBalance | currency: 'R '}}</div>
-          </div>
-
+  <div class="transactions-container">
+    <div class="personal-details-container">
+      <mat-card class="details-card">
+        <mat-card-content class="personal-details">
+          <div class="avatar">{{initials}}</div>
+          <p>{{customer?.name | titlecase}} {{customer?.surname | titlecase}}</p>
+          <p>{{customer?.email}}</p>
+          <p>09876543</p>
         </mat-card-content>
-
       </mat-card>
-
     </div>
-    <div class="account-transaction-container">
-      <mat-card class="transactions-card">
-        <mat-card-content>
-          <div class="specific-account-details" *ngFor="let account of accounts">
 
-            <div>{{account.accountType}}</div>
-            <div>Available Balance: {{account.accountBalance}}</div>
-            <div>Latest Balance: {{account.accountBalance}}</div>
-          </div>
-          <hr />
-          <div class="account-specific-transactions">
-            <h3>Transactions</h3>
-            <div *ngFor="let transaction of transactions">
-              <div>{{transaction.dateOfTransaction}}</div>
-              <div>Transfer To: Current Account</div>
+    <div class="user-bank-details">
+      <div class="accounts-container">
+        <mat-card class="accounts-card">
+          <mat-card-title class="card-heading">
+            <h2>Accounts</h2>
+            <hr/>
+          </mat-card-title>
+
+          <mat-card-content class="card-content">
+            <div class="account-details" *ngFor="let account of accounts">
+              <!--          <hr/>-->
+              <div class="account-type-heading">{{account.accountType}} ACCOUNT</div>
+              <div>Available Balance: {{account.accountBalance | currency: 'R '}}</div>
             </div>
-          </div>
-        </mat-card-content>
-      </mat-card>
+
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <div class="account-transaction-container">
+        <mat-card class="transactions-card">
+          <mat-card-content>
+            <div class="specific-account-details">
+
+              <div>{{accounts[0].accountType}}</div>
+              <div>Available Balance: {{accounts[0].accountBalance}}</div>
+              <div>Latest Balance: {{accounts[0].accountBalance}}</div>
+            </div>
+            <hr />
+            <div class="account-specific-transactions">
+              <h3>Transactions</h3>
+              <div *ngFor="let transaction of transactions">
+                <div>{{transaction.dateOfTransaction}}</div>
+                <div>Transfer To: Current Account</div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
     </div>
   </div>
-
-
-
-
 
 </body>

@@ -8,16 +8,17 @@
       <mat-card class="account-card">
         <mat-card-title class="account-card-title">{{account.accountType}} ACCOUNT</mat-card-title>
 
-        <mat-card-content>
-          <div class="account-card-content-container">
+        <mat-card-content class="account-card-content-container">
+          <div class="content-body">
             <div class="account-card-available-balance">
               Available Balance: {{account.accountBalance | currency: 'R'}}
             </div>
             <div class="account-card-latest-balance">
               Latest Balance: {{account.accountBalance | currency: 'R'}}
-            <button class="account-transfer-button" mat-flat-button (click)="transferFunds()">Transfer</button>
             </div>
           </div>
+
+          <button class="account-transfer-button" mat-flat-button (click)="transferFunds()">Transfer</button>
         </mat-card-content>
 
       </mat-card>

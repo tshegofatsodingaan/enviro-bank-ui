@@ -2,6 +2,12 @@ body{
   background-color: #F9F7F5;
 }
 
+.transactions-container{
+  width: 85%;
+  margin: auto;
+}
+
+
 .avatar{
   font-size: 26px;
   width: 2.5em;
@@ -15,16 +21,18 @@ body{
   border-width: thin;
 }
 
+
 .personal-details-container{
   padding-top: 30px;
 }
+
 
 .details-card{
   width: 90%;
   margin: auto;
   border-radius: 0;
-
 }
+
 
 .personal-details{
   display: flex;
@@ -32,35 +40,38 @@ body{
   justify-content: space-between;
   font-weight: 500;
   font-size: 19px;
-
 }
+
 
 .accounts-container{
   display: flex;
   flex-direction: column;
   width: 30%;
-  margin-left: 84px;
+  margin-left: 72px;
   margin-top: 60px;
-
 }
+
 
 .accounts-card{
   font-weight: 500;
   border-radius: 0;
-
 }
+
 
 .card-heading{
   padding: 0 20px 0 20px;
 }
 
+
 .card-content{
   padding-top: 10px;
 }
 
+
 .account-details{
   padding-bottom: 35px;
 }
+
 
 .account-type-heading{
   padding-bottom: 10px;
@@ -72,12 +83,14 @@ body{
   flex-direction: row;
 }
 
+
 .account-transaction-container{
   width: 55%;
   margin: auto;
   height: 60vh;
   margin-top: 60px;
 }
+
 
 .transactions-card{
   border-radius: 0;

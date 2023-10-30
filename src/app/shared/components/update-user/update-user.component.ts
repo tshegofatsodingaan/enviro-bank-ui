@@ -21,8 +21,6 @@ export class UpdateUserComponent implements OnInit{
   constructor(private authService: AuthService,
               private formBuilder: FormBuilder,
               private activatedRoute: ActivatedRoute,
-              private snackBar: MatSnackBar,
-              private route: Router,
               private dialog: MatDialog) {
   }
 
@@ -51,7 +49,7 @@ export class UpdateUserComponent implements OnInit{
       title: 'Confirm',
       content: 'Are you sure you want to proceed with this update?'
     }
-    const dialogReference = this.dialog.open(DialogBoxComponent, mdConfig);
+    this.dialog.open(DialogBoxComponent, mdConfig);
 
   }
 
@@ -67,16 +65,7 @@ export class UpdateUserComponent implements OnInit{
       }
       this.dialogPopUp();
       if(id){
-        this.authService.updateUser(id, userDetails).subscribe(data => {
-          // this.snackBar.open(this.snackBarMessage, 'Close', {
-          //   duration: this.durationInSeconds * 1000,
-          //   verticalPosition: 'top',
-          //   horizontalPosition: 'right',
-          //   panelClass: 'success-snackbar'
-          // });
-          console.log(data);
-          // this.route.navigateByUrl('admin/dashboard')
-        })
+        this.authService.updateUser(id, userDetails).subscribe()
       }
 
     }

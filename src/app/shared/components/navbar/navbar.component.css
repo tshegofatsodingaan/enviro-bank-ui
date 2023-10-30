@@ -1,7 +1,7 @@
 .toolbar{
   font-size: 25px;
   font-weight: bold;
-  padding: 60px;
+  padding: 45px;
   background-color: #03a9f4;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .toolbar-heading{
-  padding: 20px 0 0;
+  padding: 12px 0 0;
   font-weight: 500;
   font-size: 30px;
   color: #FFFFFF;
@@ -36,7 +36,7 @@
 .sub-menu-wrap{
   display: none;
   position: absolute;
-  top: 120px;
+  top: 90px;
   width: 200px;
   right: 5%;
 
