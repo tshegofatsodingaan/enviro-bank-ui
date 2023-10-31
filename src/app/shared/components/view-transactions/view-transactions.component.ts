@@ -15,19 +15,18 @@ export class ViewTransactionsComponent implements OnInit{
 
   customer: Customer | undefined;
   accounts: Account[] = [];
+  singleAccount: Account[] = [];
   transactions: Transactions[] = [];
   initials = '';
 
   constructor(private activatedRoute: ActivatedRoute,
-              private authService: AuthService,
-              private sharedService: SharedService) {
+              private authService: AuthService) {
   }
 
   ngOnInit(): void {
     this.getUser();
     this.getAllAccounts();
     this.getAccountByAccountNumber();
-    this.sharedService.getAccount();
     this.getAllTransactions();
   }
 
@@ -56,8 +55,7 @@ export class ViewTransactionsComponent implements OnInit{
     let accountNum = this.activatedRoute.snapshot.paramMap.get('accountNumber');
     if(accountNum){
       this.authService.getOneAccount(accountNum).subscribe(data => {
-        this.accounts = data
-        console.log(this.accounts);
+        this.singleAccount = data
       });
     }
   }
@@ -67,6 +65,7 @@ export class ViewTransactionsComponent implements OnInit{
     if (accountNum) {
       this.authService.getAllTransactions(accountNum).subscribe(data => {
         this.transactions = data;
+        console.log(this.transactions);
       })
     }
   }

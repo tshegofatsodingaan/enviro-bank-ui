@@ -31,29 +31,10 @@
     <div class="account-card-container">
       <h2 class="accounts-heading" *ngIf="viewAccounts">Accounts</h2>
 
-      <div class="account-details-container" *ngFor="let account of accounts">
+      <app-account-cards></app-account-cards>
 
-        <mat-card class="account-card">
-          <mat-card-title class="account-card-title" [routerLink]="['/view-transactions', account.accountNum, customer?.id]">
-            {{account.accountType}} ACCOUNT
-          </mat-card-title>
-
-          <mat-card-content class="account-card-content">
-            <div class="account-card-content-container">
-              <div class="account-card-available-balance">
-                Available Balance: {{account.accountBalance | currency: 'R'}}
-              </div>
-              <div class="account-card-latest-balance">
-                Latest Balance: {{account.accountBalance | currency: 'R'}}
-                <button class="account-transfer-button" mat-flat-button (click)="transferFunds()">Transfer</button>
-              </div>
-            </div>
-          </mat-card-content>
-        </mat-card>
-      </div>
-    </div>
   </div>
 
-
+  </div>
 
 </body>

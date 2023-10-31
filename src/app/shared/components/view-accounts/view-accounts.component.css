@@ -93,31 +93,3 @@ body{
   font-size: 18px;
 }
 
-.account-card {
-  padding: 0 0 20px;
-  background-color: #FFFFFF;
-  border-radius: 0;
-}
-
-.account-card-content-container {
-  display: flex;
-  flex-direction: row;
-}
-
-.account-card-available-balance {
-  padding: 10px 10px 0 0;
-}
-
-.account-card-latest-balance{
-  padding: 3px 0 0 300px;
-}
-
-.account-transfer-button{
-  margin: 0 0 0 500px;
-  border-style: solid;
-  border-radius: 0;
-  border-color: #03a9f4;
-  padding: 10px 40px;
-  font-size: 16px;
-}
-

@@ -35,11 +35,11 @@
       <div class="account-transaction-container">
         <mat-card class="transactions-card">
           <mat-card-content>
-            <div class="specific-account-details">
+            <div class="specific-account-details" *ngFor="let account of singleAccount">
 
-              <div>{{accounts[0].accountType}}</div>
-              <div>Available Balance: {{accounts[0].accountBalance}}</div>
-              <div>Latest Balance: {{accounts[0].accountBalance}}</div>
+              <div>{{account.accountType}}</div>
+              <div>Available Balance: {{account.accountBalance}}</div>
+              <div>Latest Balance: {{account.accountBalance}}</div>
             </div>
             <hr />
             <div class="account-specific-transactions">

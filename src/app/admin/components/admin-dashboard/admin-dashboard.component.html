@@ -3,9 +3,8 @@
 <body class="customer-container">
 
   <div class="customer-table">
-    <h2 class="customer-table-heading">Clients</h2>
     <div class="customer-header">
-
+      <h2 class="customer-table-heading">Clients</h2>
       <button class="customer-add-client-btn" mat-flat-button (click)="addNewClient()">Add Client</button>
     </div>
     <table mat-table [dataSource]="customers" class="mat-elevation-z8">
@@ -37,6 +36,11 @@
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr class="update-action" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <mat-paginator [length]="100"
+                     [pageSize]="10"
+                     [pageSizeOptions]="[5, 10, 25, 100]"
+                     aria-label="Select page">
+      </mat-paginator>
     </table>
   </div>
 </body>

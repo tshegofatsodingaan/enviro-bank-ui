@@ -19,9 +19,7 @@ export class ViewAccountsComponent implements OnInit{
   enviroBankSession = this.authService.session;
 
   constructor(private authService: AuthService,
-              private activatedRoute: ActivatedRoute,
-              private route: Router,
-              private sharedService: SharedService) {
+              private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -51,13 +49,8 @@ export class ViewAccountsComponent implements OnInit{
         if(this.accounts.length != 0){
           this.viewAccounts = true
         }
-        this.sharedService.setAccount(this.accounts);
       });
     }
-  }
-
-  transferFunds() {
-    this.route.navigateByUrl('shared/transfer-funds');
   }
 
 
