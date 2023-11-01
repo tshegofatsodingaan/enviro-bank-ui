@@ -96,3 +96,25 @@ body{
   border-radius: 0;
   height: 60vh;
 }
+
+.specific-account-details{
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.amounts{
+  display: flex;
+  margin: 10px 0 20px 0;
+}
+
+.latest-balance-amount{
+  margin-left: 170px;
+}
+
+.account-specific-transactions{
+  margin-left: 10px;
+}
+
+.transaction{
+  margin-bottom: 20px;
+}

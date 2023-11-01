@@ -37,15 +37,18 @@
           <mat-card-content>
             <div class="specific-account-details" *ngFor="let account of singleAccount">
 
-              <div>{{account.accountType}}</div>
-              <div>Available Balance: {{account.accountBalance}}</div>
-              <div>Latest Balance: {{account.accountBalance}}</div>
+              <h3 class="account-heading">{{account.accountType}} ACCOUNT</h3>
+              <div class="amounts">
+                <div>Available Balance: {{account.accountBalance | currency: 'R '}}</div>
+                <div class="latest-balance-amount">Latest Balance: {{account.accountBalance | currency: 'R '}}</div>
+              </div>
+
             </div>
             <hr />
             <div class="account-specific-transactions">
               <h3>Transactions</h3>
-              <div *ngFor="let transaction of transactions">
-                <div>{{transaction.dateOfTransaction}}</div>
+              <div class="transaction" *ngFor="let transaction of transactions">
+                <div>{{transaction.dateOfTransaction | date: 'd MMMM y'}}</div>
                 <div>Transfer To: Current Account</div>
               </div>
             </div>
