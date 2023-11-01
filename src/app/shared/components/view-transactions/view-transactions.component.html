@@ -3,7 +3,7 @@
 <body>
   <div class="transactions-container">
     <div class="personal-details-container">
-      <mat-card class="details-card">
+      <mat-card class="details-card" *ngIf="showPersonalDetails">
         <mat-card-content class="personal-details">
           <div class="avatar">{{initials}}</div>
           <p>{{customer?.name | titlecase}} {{customer?.surname | titlecase}}</p>
@@ -49,7 +49,10 @@
               <h3>Transactions</h3>
               <div class="transaction" *ngFor="let transaction of transactions">
                 <div>{{transaction.dateOfTransaction | date: 'd MMMM y'}}</div>
-                <div>Transfer To: Current Account</div>
+                <div class="transaction-details">
+                  <div>Transfer From: Current Account</div>
+                  <div class="amount">+ {{transaction.transactionAmount}}</div>
+                </div>
               </div>
             </div>
           </mat-card-content>

@@ -18,21 +18,30 @@ export class ViewTransactionsComponent implements OnInit{
   singleAccount: Account[] = [];
   transactions: Transactions[] = [];
   initials = '';
+  showPersonalDetails = false;
 
   constructor(private activatedRoute: ActivatedRoute,
               private authService: AuthService) {
   }
 
   ngOnInit(): void {
-    this.getUser();
-    this.getAllAccounts();
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+    if(id != "null"){
+      this.getUser();
+      this.getAllAccounts();
+    }
+    if(id === 'null'){
+      this.getAccountsBySessionUser();
+    }
     this.getAccountByAccountNumber();
     this.getAllTransactions();
   }
 
   public getUser(){
-    let id = this.activatedRoute.snapshot.paramMap.get('id');
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.showPersonalDetails = true;
     if(id){
+      this.showPersonalDetails = true;
       this.authService.getUser(id).subscribe(data => {
         this.customer = data
         const name = this.customer.name.charAt(0).toUpperCase();
@@ -49,6 +58,13 @@ export class ViewTransactionsComponent implements OnInit{
         this.accounts = data
       });
     }
+  }
+
+  public getAccountsBySessionUser(){
+    const session = this.authService.session
+    this.authService.getAllAccounts(session.id, {size: 3, page: 0}).subscribe(data => {
+      this.accounts = data
+    });
   }
 
   public getAccountByAccountNumber(){

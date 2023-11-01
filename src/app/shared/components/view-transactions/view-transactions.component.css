@@ -117,4 +117,15 @@ body{
 
 .transaction{
   margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.transaction-details{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+.amount{
+  color: limegreen;
 }
