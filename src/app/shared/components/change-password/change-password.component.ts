@@ -45,23 +45,13 @@ export class ChangePasswordComponent implements OnInit{
         confirmPassword: this.changePasswordFormGroup.get('confirmPassword')?.value as string
       }
 
-      const userToken = this.activatedRoute.snapshot.queryParams['token'];
-      if(userToken == undefined){
-        const tokenSession = this.authService.session;
-        this.authService.changePassword(passwords, tokenSession.token).subscribe((error) => {
-          this.displaySnackBar();
-          if (error.status === 403){
-            this.uniquePassword = true
-          }
-        })
-      } else{
-        this.authService.changePassword(passwords, userToken).subscribe((error) => {
-          this.displaySnackBar();
-          if (error.status === 403){
-            this.uniquePassword = true
-          }
-        })
-      }
+      const tokenSession = this.authService.session;
+      this.authService.changePassword(passwords, tokenSession.token).subscribe((error) => {
+        this.displaySnackBar();
+        if (error.status === 403){
+          this.uniquePassword = true
+        }
+      })
     }
   }
 

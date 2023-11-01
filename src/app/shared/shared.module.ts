@@ -14,7 +14,6 @@ import {RouterLink, RouterModule} from "@angular/router";
 import { ViewTransactionsComponent } from './components/view-transactions/view-transactions.component';
 import {AuthorizedRoute} from "./security/authorized-routs";
 import {TransferComponent} from "./components/transfer/transfer.component";
-import {customerRoutes} from "../customer/customer.module";
 import { DialogBoxComponent } from './components/dialog-box/dialog-box.component';
 import { AccountCardsComponent } from './components/account-cards/account-cards.component';
 import { ChangePasswordBeforeLoginComponent } from './components/change-password-before-login/change-password-before-login.component';

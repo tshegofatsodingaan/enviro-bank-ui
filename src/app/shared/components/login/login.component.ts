@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit{
   user: Customer[] = [];
 
   ngOnInit(): void {
+    sessionStorage.removeItem('enviro-bank_session');
   }
 
   signInFormGroup = this.formBuilder.group({
