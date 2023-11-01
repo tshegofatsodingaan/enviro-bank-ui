@@ -55,7 +55,6 @@ export class ChangePasswordComponent implements OnInit{
           }
         })
       } else{
-
         this.authService.changePassword(passwords, userToken).subscribe((error) => {
           this.displaySnackBar();
           if (error.status === 403){

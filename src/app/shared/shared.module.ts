@@ -17,6 +17,7 @@ import {TransferComponent} from "./components/transfer/transfer.component";
 import {customerRoutes} from "../customer/customer.module";
 import { DialogBoxComponent } from './components/dialog-box/dialog-box.component';
 import { AccountCardsComponent } from './components/account-cards/account-cards.component';
+import { ChangePasswordBeforeLoginComponent } from './components/change-password-before-login/change-password-before-login.component';
 
 
 export const sharedRoutes: AuthorizedRoute[] = [
@@ -38,7 +39,8 @@ export const sharedRoutes: AuthorizedRoute[] = [
     ViewTransactionsComponent,
     TransferComponent,
     DialogBoxComponent,
-    AccountCardsComponent
+    AccountCardsComponent,
+    ChangePasswordBeforeLoginComponent
   ],
   imports: [
     CommonModule,
