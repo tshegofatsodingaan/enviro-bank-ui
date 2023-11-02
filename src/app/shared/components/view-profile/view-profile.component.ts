@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
 import {Customer} from "../../../models/customer.model";
 import {Account} from "../../../models/account.model";
+import {SharedService} from "../../services/shared.service";
 
 
 @Component({
@@ -17,7 +18,7 @@ export class ViewProfileComponent implements OnInit{
 
   constructor(private activatedRoute: ActivatedRoute,
               private route: Router,
-              private authService: AuthService) {
+              private sharedService: SharedService) {
   }
 
   ngOnInit(): void {
@@ -25,7 +26,7 @@ export class ViewProfileComponent implements OnInit{
     let id = this.activatedRoute.snapshot.paramMap.get('id');
 
     if(id){
-      this.authService.getUser(id).subscribe(data => {
+      this.sharedService.getUser(id).subscribe(data => {
         this.user = data;
       });
       this.gatherUserAccounts();
@@ -36,7 +37,7 @@ export class ViewProfileComponent implements OnInit{
   public gatherUserAccounts(){
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     if(id){
-      this.authService.getAllAccounts(id, {size: 3, page: 0}).subscribe(data => {
+      this.sharedService.getAllAccounts(id, {size: 3, page: 0}).subscribe(data => {
         this.accounts = data;
         console.log(this.accounts);
       })

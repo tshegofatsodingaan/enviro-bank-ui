@@ -19,14 +19,16 @@ export class ViewTransactionsComponent implements OnInit{
   transactions: Transactions[] = [];
   initials = '';
   showPersonalDetails = false;
+  noTransactions = false;
 
   constructor(private activatedRoute: ActivatedRoute,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private sharedService: SharedService) {
   }
 
   ngOnInit(): void {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
-    if(id != "null"){
+    if(id != 'null'){
       this.getUser();
       this.getAllAccounts();
     }
@@ -41,8 +43,8 @@ export class ViewTransactionsComponent implements OnInit{
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     this.showPersonalDetails = true;
     if(id){
-      this.showPersonalDetails = true;
-      this.authService.getUser(id).subscribe(data => {
+      // this.showPersonalDetails = true;
+      this.sharedService.getUser(id).subscribe(data => {
         this.customer = data
         const name = this.customer.name.charAt(0).toUpperCase();
         const surname = this.customer.surname.charAt(0).toUpperCase();
@@ -54,7 +56,7 @@ export class ViewTransactionsComponent implements OnInit{
   public getAllAccounts() {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     if(id){
-      this.authService.getAllAccounts(id, {size: 3, page: 0}).subscribe(data => {
+      this.sharedService.getAllAccounts(id, {size: 3, page: 0}).subscribe(data => {
         this.accounts = data
       });
     }
@@ -62,7 +64,7 @@ export class ViewTransactionsComponent implements OnInit{
 
   public getAccountsBySessionUser(){
     const session = this.authService.session
-    this.authService.getAllAccounts(session.id, {size: 3, page: 0}).subscribe(data => {
+    this.sharedService.getAllAccounts(session.id, {size: 3, page: 0}).subscribe(data => {
       this.accounts = data
     });
   }
@@ -70,7 +72,7 @@ export class ViewTransactionsComponent implements OnInit{
   public getAccountByAccountNumber(){
     let accountNum = this.activatedRoute.snapshot.paramMap.get('accountNumber');
     if(accountNum){
-      this.authService.getOneAccount(accountNum).subscribe(data => {
+      this.sharedService.getOneAccount(accountNum).subscribe(data => {
         this.singleAccount = data
       });
     }
@@ -79,12 +81,14 @@ export class ViewTransactionsComponent implements OnInit{
   public getAllTransactions(){
     let accountNum = this.activatedRoute.snapshot.paramMap.get('accountNumber');
     if (accountNum) {
-      this.authService.getAllTransactions(accountNum).subscribe(data => {
+      this.sharedService.getAllTransactions(accountNum).subscribe(data => {
         this.transactions = data;
-        console.log(this.transactions);
+        if(this.transactions.length === 0){
+          this.noTransactions = true;
+          console.log(this.noTransactions)
+        }
       })
     }
   }
-
 
 }

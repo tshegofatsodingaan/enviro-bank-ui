@@ -47,6 +47,7 @@
             <hr />
             <div class="account-specific-transactions">
               <h3>Transactions</h3>
+              <div class="empty-transactions" *ngIf="noTransactions">No history transactions in this account.</div>
               <div class="transaction" *ngFor="let transaction of transactions">
                 <div>{{transaction.dateOfTransaction | date: 'd MMMM y'}}</div>
                 <div class="transaction-details">

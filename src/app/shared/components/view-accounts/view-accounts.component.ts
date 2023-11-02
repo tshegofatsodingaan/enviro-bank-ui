@@ -16,10 +16,9 @@ export class ViewAccountsComponent implements OnInit{
   accounts: Account[] = [];
   initials = '';
   viewAccounts = false;
-  enviroBankSession = this.authService.session;
 
-  constructor(private authService: AuthService,
-              private activatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute,
+              private sharedService: SharedService) {
   }
 
   ngOnInit(): void {
@@ -32,7 +31,7 @@ export class ViewAccountsComponent implements OnInit{
   public getCustomer(){
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     if(id){
-      this.authService.getUser(id).subscribe( data => {
+      this.sharedService.getUser(id).subscribe( data => {
         this.customer = data
         const name = this.customer.name.charAt(0).toUpperCase();
         const surname = this.customer.surname.charAt(0).toUpperCase();
@@ -44,7 +43,7 @@ export class ViewAccountsComponent implements OnInit{
   public getAllAccounts() {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     if(id){
-      this.authService.getAllAccounts(id, {size: 3, page: 0}).subscribe( data => {
+      this.sharedService.getAllAccounts(id, {size: 3, page: 0}).subscribe( data => {
         this.accounts = data;
         if(this.accounts.length != 0){
           this.viewAccounts = true
