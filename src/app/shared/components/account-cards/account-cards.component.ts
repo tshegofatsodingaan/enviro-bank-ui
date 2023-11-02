@@ -4,6 +4,7 @@ import {CustomerService} from "../../../customer/services/customer.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
 import {Customer} from "../../../models/customer.model";
+import {SharedService} from "../../services/shared.service";
 
 @Component({
   selector: 'app-account-cards',
@@ -18,7 +19,8 @@ export class AccountCardsComponent {
   constructor(private customerService: CustomerService,
               private route: Router,
               private activatedRoute: ActivatedRoute,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private sharedService: SharedService) {
   }
 
 
@@ -28,7 +30,7 @@ export class AccountCardsComponent {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
 
     if(id){
-      this.authService.getAllAccounts(id, {size: 3, page: 0}).subscribe( data => {
+      this.sharedService.getAllAccounts(id, {size: 3, page: 0}).subscribe( data => {
         this.accounts = data;
         if(this.accounts.length != 0){
           // this.viewAccounts = true
@@ -46,7 +48,7 @@ export class AccountCardsComponent {
   public getCustomer(){
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     if(id){
-      this.authService.getUser(id).subscribe( data => {
+      this.sharedService.getUser(id).subscribe( data => {
         this.customer = data
       });
     }
@@ -55,6 +57,5 @@ export class AccountCardsComponent {
   transferFunds() {
     this.route.navigateByUrl('shared/transfer-funds');
   }
-
 
 }

@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {DialogBoxComponent} from "../dialog-box/dialog-box.component";
+import {SharedService} from "../../services/shared.service";
 
 @Component({
   selector: 'app-update-user',
@@ -15,10 +16,8 @@ export class UpdateUserComponent implements OnInit{
 
 
   updateUserFormGroup: FormGroup = new FormGroup<any>({})
-  durationInSeconds = 2;
-  snackBarMessage = 'User updated successfully!'
 
-  constructor(private authService: AuthService,
+  constructor(private sharedService: SharedService,
               private formBuilder: FormBuilder,
               private activatedRoute: ActivatedRoute,
               private dialog: MatDialog) {
@@ -36,7 +35,7 @@ export class UpdateUserComponent implements OnInit{
     let id = this.activatedRoute.snapshot.paramMap.get('id');
 
     if(id){
-      this.authService.getUser(id).subscribe(data => {
+      this.sharedService.getUser(id).subscribe(data => {
           this.updateUserFormGroup.patchValue(data);
       });
     }
@@ -65,12 +64,9 @@ export class UpdateUserComponent implements OnInit{
       }
       this.dialogPopUp();
       if(id){
-        this.authService.updateUser(id, userDetails).subscribe()
+        this.sharedService.updateUser(id, userDetails).subscribe()
       }
-
     }
-
-
   }
 
 }

@@ -55,7 +55,6 @@ export class LoginComponent implements OnInit{
       }, (error) => {
         if (error.status === 401){
           this.invalidCredentials = true;
-          console.log( 'status code', error.status)
         }
       } )
 

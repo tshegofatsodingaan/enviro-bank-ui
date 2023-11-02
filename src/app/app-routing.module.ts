@@ -2,15 +2,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from "./shared/components/login/login.component";
 import { ResetPasswordComponent } from "./shared/components/reset-password/reset-password.component";
-import { ChangePasswordComponent } from "./shared/components/change-password/change-password.component";
+import { UpdatePasswordComponent } from "./shared/components/update-password/update-password.component";
 import { AuthorizedRoutes } from "./shared/security/authorized-routs";
 import { UpdateUserComponent } from "./shared/components/update-user/update-user.component";
 import {ViewProfileComponent} from "./shared/components/view-profile/view-profile.component";
 import {ViewAccountsComponent} from "./shared/components/view-accounts/view-accounts.component";
 import {ViewTransactionsComponent} from "./shared/components/view-transactions/view-transactions.component";
 import {
-  ChangePasswordBeforeLoginComponent
-} from "./shared/components/change-password-before-login/change-password-before-login.component";
+  ChangePasswordComponent
+} from "./shared/components/change-password/change-password.component";
 
 const routes: AuthorizedRoutes = [
   {
@@ -42,15 +42,15 @@ const routes: AuthorizedRoutes = [
     title: 'Reset Password Page'
   },
   {
-    path: 'change-password',
+    path: 'update-password',
     pathMatch: 'full',
-    component: ChangePasswordComponent,
+    component: UpdatePasswordComponent,
     title: 'Change Password Page'
   },
   {
-    path: 'change-password-before-login',
+    path: 'change-password',
     pathMatch: 'full',
-    component: ChangePasswordBeforeLoginComponent,
+    component: ChangePasswordComponent,
     title: 'Change Password Page'
   },
   {
