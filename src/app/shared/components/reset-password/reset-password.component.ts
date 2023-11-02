@@ -29,23 +29,26 @@ export class ResetPasswordComponent implements OnInit{
     })
   }
 
+  public displaySnackBar(){
+    this.snackBar.open(this.snackBarMessage, 'Close', {
+      duration: this.durationInSeconds * 1000,
+      verticalPosition: 'top',
+      horizontalPosition: 'right',
+      panelClass: 'success-snackbar'
+    })
+  }
+
   public resetPassword(): void {
     if (this.resetPasswordFormGroup.valid) {
       const user = {
         email: this.resetPasswordFormGroup.get('email')?.value as string
       }
-      this.authService.resetPassword(user).subscribe(data =>{
-        this.snackBar.open(this.snackBarMessage, 'Close', {
-          duration: this.durationInSeconds * 1000,
-          verticalPosition: 'top',
-          horizontalPosition: 'right',
-          panelClass: 'success-snackbar'
-        });
-      }, (error) =>{
+      this.authService.resetPassword(user).subscribe((error) =>{
         if (error.status === 403){
           this.invalidCredentials = true
         }
       });
+      this.displaySnackBar();
     }
   }
 
