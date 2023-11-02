@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from "./components/login/login.component";
-import { ChangePasswordComponent } from "./components/change-password/change-password.component";
+import { UpdatePasswordComponent } from "./components/update-password/update-password.component";
 import { ResetPasswordComponent } from "./components/reset-password/reset-password.component";
 import {MaterialModule} from "../material/material.module";
 import {ReactiveFormsModule} from "@angular/forms";
@@ -16,7 +16,7 @@ import {AuthorizedRoute} from "./security/authorized-routs";
 import {TransferComponent} from "./components/transfer/transfer.component";
 import { DialogBoxComponent } from './components/dialog-box/dialog-box.component';
 import { AccountCardsComponent } from './components/account-cards/account-cards.component';
-import { ChangePasswordBeforeLoginComponent } from './components/change-password-before-login/change-password-before-login.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 
 export const sharedRoutes: AuthorizedRoute[] = [
@@ -30,7 +30,7 @@ export const sharedRoutes: AuthorizedRoute[] = [
 @NgModule({
   declarations: [
     LoginComponent,
-    ChangePasswordComponent,
+    UpdatePasswordComponent,
     ResetPasswordComponent,
     NavbarComponent,
     UpdateUserComponent,
@@ -39,7 +39,7 @@ export const sharedRoutes: AuthorizedRoute[] = [
     TransferComponent,
     DialogBoxComponent,
     AccountCardsComponent,
-    ChangePasswordBeforeLoginComponent
+    ChangePasswordComponent
   ],
   imports: [
     CommonModule,
