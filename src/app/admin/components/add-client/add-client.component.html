@@ -10,6 +10,14 @@
             <h3 class="enviro-form-container-heading">Create new client</h3>
           </mat-card-title>
 
+          <div class="enviro-bank-invalid-credentials" *ngIf="duplicateEmail">
+            This email already exists.
+          </div>
+
+          <div class="enviro-bank-invalid-credentials" *ngIf="invalidPersonalDetails">
+            Enter valid details and try again.
+          </div>
+
           <mat-card-content class="card-content">
             <mat-form-field class="form-field-width">
               <mat-label>Name</mat-label>

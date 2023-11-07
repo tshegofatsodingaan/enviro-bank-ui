@@ -9,7 +9,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
   templateUrl: './reset-password.component.html',
   styleUrls: ['./reset-password.component.css']
 })
-export class ResetPasswordComponent implements OnInit{
+export class ResetPasswordComponent implements OnInit {
 
   durationInSeconds = 2;
   snackBarMessage = 'An email has been sent.'
@@ -17,6 +17,7 @@ export class ResetPasswordComponent implements OnInit{
   resetPasswordFormGroup: FormGroup = new FormGroup({})
 
   invalidCredentials: boolean = false
+
   constructor(private formBuilder: FormBuilder,
               private authService: AuthService,
               private snackBar: MatSnackBar) {
@@ -29,7 +30,7 @@ export class ResetPasswordComponent implements OnInit{
     })
   }
 
-  public displaySnackBar(){
+  public displaySnackBar() {
     this.snackBar.open(this.snackBarMessage, 'Close', {
       duration: this.durationInSeconds * 1000,
       verticalPosition: 'top',
@@ -43,12 +44,17 @@ export class ResetPasswordComponent implements OnInit{
       const user = {
         email: this.resetPasswordFormGroup.get('email')?.value as string
       }
-      this.authService.resetPassword(user).subscribe((error) =>{
-        if (error.status === 403){
+      this.authService.resetPassword(user).subscribe((data) => {
+
+      }, (error) => {
+        if (error.status === 401) {
           this.invalidCredentials = true
+        } else{
+          this.invalidCredentials = false;
+          console.log(this.invalidCredentials);
+          this.displaySnackBar();
         }
       });
-      this.displaySnackBar();
     }
   }
 

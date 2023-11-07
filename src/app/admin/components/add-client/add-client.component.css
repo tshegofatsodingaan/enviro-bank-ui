@@ -60,3 +60,8 @@ a{
 .add-client-card{
   margin: auto;
 }
+
+.enviro-bank-invalid-credentials{
+  width: 95%;
+  margin: auto auto 10px;
+}

@@ -46,10 +46,9 @@ export class ChangePasswordComponent implements OnInit {
       }
       const userToken = this.activatedRoute.snapshot.queryParams['token'];
       this.authService.changePasswordBeforeLogin(passwords, userToken).subscribe((data) => {
+        this.invalidCredentials = false;
         this.displaySnackBar();
       }, (error) => {
-        // this.displaySnackBar();
-        // this.route.navigateByUrl('');
         if (error.status == 401) {
           this.invalidCredentials = true;
         }

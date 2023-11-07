@@ -11,9 +11,11 @@ import {DialogBoxComponent} from "../../../shared/components/dialog-box/dialog-b
   templateUrl: './add-client.component.html',
   styleUrls: ['./add-client.component.css']
 })
-export class AddClientComponent implements OnInit{
+export class AddClientComponent implements OnInit {
 
   addNewClientFormGroup: FormGroup = new FormGroup({});
+  duplicateEmail = false;
+  invalidPersonalDetails = false;
 
   constructor(private formBuilder: FormBuilder,
               private adminService: AdminService,
@@ -32,7 +34,7 @@ export class AddClientComponent implements OnInit{
     })
   }
 
-  dialogPopUp(){
+  dialogPopUp() {
     const mdConfig = new MatDialogConfig();
     mdConfig.width = '400px';
     mdConfig.data = {
@@ -40,13 +42,13 @@ export class AddClientComponent implements OnInit{
       content: 'Click continue to add new client.'
     }
     const dialogReference = this.dialog.open(DialogBoxComponent, mdConfig);
-    dialogReference.afterClosed().subscribe(result =>{
-      this.route.navigateByUrl('admin/dashboard');
+    dialogReference.afterClosed().subscribe(result => {
+      // this.route.navigateByUrl('admin/dashboard');
     })
   }
 
   addNewClient() {
-    if(this.addNewClientFormGroup.valid){
+    if (this.addNewClientFormGroup.valid) {
       const userDetails = {
         name: this.addNewClientFormGroup.get('name')?.value as string,
         surname: this.addNewClientFormGroup.get('surname')?.value as string,
@@ -58,8 +60,16 @@ export class AddClientComponent implements OnInit{
 
 
       this.adminService.addNewClient(enviro_bank_session.token, userDetails).subscribe(data => {
+        this.duplicateEmail = false;
+        this.invalidPersonalDetails = false;
         this.dialogPopUp();
-
+      }, (error) => {
+        if (error.status == 422) {
+          this.duplicateEmail = true;
+        }
+        if (error.status == 400) {
+          this.invalidPersonalDetails = true;
+        }
       });
 
     }
