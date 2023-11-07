@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 import {Customer} from "../../../models/customer.model";
 
 @Component({
@@ -9,9 +9,10 @@ import {Customer} from "../../../models/customer.model";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
 
-  invalidCredentials: boolean = false;
+  invalidCredentials = false;
+
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private route: Router,) {
   }
 
@@ -38,32 +39,32 @@ export class LoginComponent implements OnInit{
 
   public signIn(): void {
     sessionStorage.removeItem('enviro-bank_session')
-    if(this.signInFormGroup.valid){
+    if (this.signInFormGroup.valid) {
       this.authService.signIn(this.signInFormGroup.value).subscribe((data) => {
         sessionStorage.setItem("enviro-bank_session", JSON.stringify(data));
 
         const enviro_bank_session = this.authService.session;
         console.log(enviro_bank_session)
 
-        if(enviro_bank_session.roles[0] == "USER"){
+        if (enviro_bank_session.roles[0] == "USER") {
           this.route.navigateByUrl('customer/dashboard');
-        } else{
+        } else {
           this.route.navigateByUrl('admin/dashboard');
           this.generateInitials();
         }
 
       }, (error) => {
-        if (error.status === 401){
+        if (error.status === 401) {
           this.invalidCredentials = true;
         }
-      } )
+      })
 
     }
     return
   }
 
 
-  public requestReset(): void{
+  public requestReset(): void {
     this.route.navigateByUrl('reset-password')
   }
 

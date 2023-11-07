@@ -12,15 +12,18 @@ import {SharedService} from "../../services/shared.service";
   templateUrl: './update-user.component.html',
   styleUrls: ['./update-user.component.css']
 })
-export class UpdateUserComponent implements OnInit{
+export class UpdateUserComponent implements OnInit {
 
 
   updateUserFormGroup: FormGroup = new FormGroup<any>({})
 
+  invalidDetails = false;
+
   constructor(private sharedService: SharedService,
               private formBuilder: FormBuilder,
               private activatedRoute: ActivatedRoute,
-              private dialog: MatDialog) {
+              private dialog: MatDialog,
+              private route: Router) {
   }
 
 
@@ -34,27 +37,29 @@ export class UpdateUserComponent implements OnInit{
     })
     let id = this.activatedRoute.snapshot.paramMap.get('id');
 
-    if(id){
+    if (id) {
       this.sharedService.getUser(id).subscribe(data => {
-          this.updateUserFormGroup.patchValue(data);
+        this.updateUserFormGroup.patchValue(data);
       });
     }
   }
 
-  dialogPopUp(){
+  dialogPopUp() {
     const mdConfig = new MatDialogConfig();
     mdConfig.width = '400px';
     mdConfig.data = {
       title: 'Confirm',
       content: 'Are you sure you want to proceed with this update?'
     }
-    this.dialog.open(DialogBoxComponent, mdConfig);
-
+    const dialogRef = this.dialog.open(DialogBoxComponent, mdConfig);
+    dialogRef.afterClosed().subscribe(result => {
+      // this.route.navigateByUrl('')
+    })
   }
 
-  updateClientDetails(){
+  updateClientDetails() {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
-    if(this.updateUserFormGroup.valid){
+    if (this.updateUserFormGroup.valid) {
       const userDetails = {
         name: this.updateUserFormGroup.get('name')?.value as string,
         surname: this.updateUserFormGroup.get('surname')?.value as string,
@@ -62,9 +67,18 @@ export class UpdateUserComponent implements OnInit{
         phoneNumber: this.updateUserFormGroup.get('phoneNumber')?.value as string,
         idNumber: this.updateUserFormGroup.get('idNumber')?.value as string
       }
-      this.dialogPopUp();
-      if(id){
-        this.sharedService.updateUser(id, userDetails).subscribe();
+
+      if (id) {
+        this.sharedService.updateUser(id, userDetails).subscribe((data) => {
+          this.invalidDetails = false;
+          this.dialogPopUp();
+        },(error) => {
+          if (error.status == 400) {
+            this.invalidDetails = true;
+          }
+        });
+
+
       }
     }
   }
