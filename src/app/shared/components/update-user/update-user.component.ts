@@ -64,7 +64,7 @@ export class UpdateUserComponent implements OnInit{
       }
       this.dialogPopUp();
       if(id){
-        this.sharedService.updateUser(id, userDetails).subscribe()
+        this.sharedService.updateUser(id, userDetails).subscribe();
       }
     }
   }

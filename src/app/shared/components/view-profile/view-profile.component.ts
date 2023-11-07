@@ -39,11 +39,8 @@ export class ViewProfileComponent implements OnInit{
     if(id){
       this.sharedService.getAllAccounts(id, {size: 3, page: 0}).subscribe(data => {
         this.accounts = data;
-        console.log(this.accounts);
       })
     }
-
-
   }
 
   public generateInitials(): any {
@@ -54,7 +51,4 @@ export class ViewProfileComponent implements OnInit{
     }
   }
 
-  transferFunds() {
-    this.route.navigateByUrl('customer/transfer-funds');
-  }
 }

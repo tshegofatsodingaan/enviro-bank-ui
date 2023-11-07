@@ -1,4 +1,4 @@
-import {Component, Inject} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {MatSnackBar} from "@angular/material/snack-bar";
@@ -8,15 +8,22 @@ import {MatSnackBar} from "@angular/material/snack-bar";
   templateUrl: './dialog-box.component.html',
   styleUrls: ['./dialog-box.component.css']
 })
-export class DialogBoxComponent {
+export class DialogBoxComponent implements OnInit{
 
   public dialogDetails: { title?: string, content?: string } = {};
   snackBarMessage = 'Success!';
   durationInSeconds = 2;
+  hideContinueButton = false;
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-              private router: Router,
               private snackBar: MatSnackBar) {
     this.dialogDetails = data;
+  }
+
+  ngOnInit(): void {
+
+    if(this.dialogDetails.title == 'Warning'){
+      this.hideContinueButton = true;
+    }
   }
 
   onClickCancel() {
@@ -30,5 +37,7 @@ export class DialogBoxComponent {
       panelClass: 'success-snackbar'
     })
   }
+
+
 
 }

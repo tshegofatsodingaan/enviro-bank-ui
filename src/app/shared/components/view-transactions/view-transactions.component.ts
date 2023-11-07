@@ -85,7 +85,6 @@ export class ViewTransactionsComponent implements OnInit{
         this.transactions = data;
         if(this.transactions.length === 0){
           this.noTransactions = true;
-          console.log(this.noTransactions)
         }
       })
     }

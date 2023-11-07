@@ -11,7 +11,7 @@
 
     <mat-card-actions>
       <div class="dialog-box-button" mat-dialog-actions>
-        <button class="dialog-box-button-continue" mat-button [mat-dialog-close]="true" (click)="onClickContinue()">Continue</button>
+        <button *ngIf="!hideContinueButton" class="dialog-box-button-continue" mat-button [mat-dialog-close]="true" (click)="onClickContinue()">Continue</button>
         <button class="dialog-box-button-cancel" mat-button [mat-dialog-close]="false" (click)="onClickCancel()">Cancel</button>
       </div>
     </mat-card-actions>

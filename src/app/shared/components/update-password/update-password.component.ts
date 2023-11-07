@@ -47,7 +47,6 @@ export class UpdatePasswordComponent implements OnInit{
       const tokenSession = this.authService.session;
       this.authService.changePassword(passwords, tokenSession.token).subscribe((error) => {
         this.displaySnackBar();
-        this.route.navigateByUrl('');
         if (error.status === 403){
           this.uniquePassword = true
         }
