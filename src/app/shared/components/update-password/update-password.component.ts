@@ -9,12 +9,13 @@ import {MatSnackBar} from "@angular/material/snack-bar";
   templateUrl: './update-password.component.html',
   styleUrls: ['./update-password.component.css']
 })
-export class UpdatePasswordComponent implements OnInit{
+export class UpdatePasswordComponent implements OnInit {
 
   changePasswordFormGroup: FormGroup = new FormGroup({});
   uniquePassword: boolean = false;
   durationInSeconds = 2;
   snackBarMessage = 'Password updated successfully!'
+  passwordMismatch = false;
 
   constructor(private route: Router, private formBuilder: FormBuilder,
               private authService: AuthService,
@@ -28,7 +29,7 @@ export class UpdatePasswordComponent implements OnInit{
     })
   }
 
-  public displaySnackBar(){
+  public displaySnackBar() {
     this.snackBar.open(this.snackBarMessage, 'Close', {
       duration: this.durationInSeconds * 1000,
       verticalPosition: 'top',
@@ -37,20 +38,28 @@ export class UpdatePasswordComponent implements OnInit{
     })
   }
 
-  public changePassword(){
-    if (this.changePasswordFormGroup.valid){
+  public changePassword() {
+    if (this.changePasswordFormGroup.valid) {
       const passwords = {
         newPassword: this.changePasswordFormGroup.get('newPassword')?.value as string,
         confirmPassword: this.changePasswordFormGroup.get('confirmPassword')?.value as string
       }
+      if (passwords.newPassword != passwords.confirmPassword){
+        this.passwordMismatch = true;
+      } else{
+        const tokenSession = this.authService.session;
+        this.authService.changePassword(passwords, tokenSession.token).subscribe((data) => {
+          this.passwordMismatch = false;
+          this.uniquePassword = false;
+          this.displaySnackBar();
+        }, (error) => {
+          if (error.status == 401) {
+            this.uniquePassword = true
+          }
+        })
+      }
 
-      const tokenSession = this.authService.session;
-      this.authService.changePassword(passwords, tokenSession.token).subscribe((error) => {
-        this.displaySnackBar();
-        if (error.status === 403){
-          this.uniquePassword = true
-        }
-      })
+
     }
   }
 

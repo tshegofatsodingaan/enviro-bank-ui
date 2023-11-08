@@ -41,7 +41,7 @@ body{
   padding-top: 50px;
   width: 90%;
   margin: auto;
-
+  z-index: -1;
 }
 
 .details-card{

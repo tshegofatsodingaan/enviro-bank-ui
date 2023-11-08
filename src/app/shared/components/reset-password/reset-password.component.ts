@@ -48,11 +48,11 @@ export class ResetPasswordComponent implements OnInit {
 
       }, (error) => {
         if (error.status === 401) {
-          this.invalidCredentials = true
+          console.log(error.status)
+          this.invalidCredentials = true;
         } else{
-          this.invalidCredentials = false;
-          console.log(this.invalidCredentials);
-          this.displaySnackBar();
+          this.invalidCredentials = true;
+          // this.displaySnackBar();
         }
       });
     }

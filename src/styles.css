@@ -8,9 +8,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .enviro-bank-invalid-credentials{
-  background: #e53935;
-  color: #FFFFFF;
-  padding: 5px;
+  background: #EDB9C8;
+  color: #BD2E38;
+  padding: 14px 10px;
   margin-bottom: 10px;
 }
 

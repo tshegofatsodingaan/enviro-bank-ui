@@ -11,7 +11,7 @@ import {DialogBoxComponent} from "../dialog-box/dialog-box.component";
   templateUrl: './transfer.component.html',
   styleUrls: ['./transfer.component.css']
 })
-export class TransferComponent{
+export class TransferComponent {
 
 
   insufficientFunds = false;
@@ -32,7 +32,7 @@ export class TransferComponent{
     transactionAmount: ['', [Validators.required]]
   })
 
-  dialogPopUp(){
+  dialogPopUp() {
     const mdConfig = new MatDialogConfig();
     mdConfig.width = '400px';
     mdConfig.data = {
@@ -45,7 +45,7 @@ export class TransferComponent{
     })
   }
 
-  dialogForInsufficientFunds(){
+  dialogForInsufficientFunds() {
     const mdConfig = new MatDialogConfig();
     mdConfig.width = '400px';
     mdConfig.data = {
@@ -58,20 +58,18 @@ export class TransferComponent{
     })
   }
 
-  transfer(){
-    if(this.transferFundsFormGroup.valid){
+  transfer() {
+    if (this.transferFundsFormGroup.valid) {
       const enviro_bank_session = this.authService.session;
       this.customerService.transferFunds(enviro_bank_session.token, this.transferFundsFormGroup.value as string).subscribe(data => {
         this.dialogPopUp();
       }, (error) => {
-        if (error.status === 400){
+        if (error.status === 400) {
           this.insufficientFunds = true;
           this.dialogForInsufficientFunds();
         }
       });
     }
-
-
     return
   }
 
