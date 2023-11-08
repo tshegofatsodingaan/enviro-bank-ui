@@ -5,20 +5,36 @@ body{
 .contained{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  padding: 30px 0 0 20px;
+}
+
+.personal-details-heading{
+  padding-left: 50px;
+  font-weight: normal;
+}
+
+.details-span{
+  color: black;
 }
 
 .update-btn{
-  padding: 10px 20px;
-  margin-right: 25px;
+  margin-right: 60px;
   border-style: solid;
   border-color: #03a9f4;
   border-width: thin;
+  border-radius: 0;
+  margin-left: auto;
+}
+
+.update-btn:hover{
+  color: #03a9f4;
 }
 
 .list-of-details{
   list-style-type: none;
-  margin-right: 500px;
+  font-size: 17px;
+  width: 90%;
+  color: grey;
 }
 
 .avatar{
@@ -38,7 +54,7 @@ body{
 
 .details-card-container{
   padding-top: 120px;
-  width: 90%;
+  width: 80%;
   margin: auto;
 }
 

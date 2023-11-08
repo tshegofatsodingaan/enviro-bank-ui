@@ -17,6 +17,7 @@ import {TransferComponent} from "./components/transfer/transfer.component";
 import { DialogBoxComponent } from './components/dialog-box/dialog-box.component';
 import { AccountCardsComponent } from './components/account-cards/account-cards.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { PersonalDetailsComponent } from './components/personal-details/personal-details.component';
 
 
 export const sharedRoutes: AuthorizedRoute[] = [
@@ -39,7 +40,8 @@ export const sharedRoutes: AuthorizedRoute[] = [
     TransferComponent,
     DialogBoxComponent,
     AccountCardsComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    PersonalDetailsComponent
   ],
   imports: [
     CommonModule,

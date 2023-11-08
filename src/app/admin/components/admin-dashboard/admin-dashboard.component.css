@@ -55,7 +55,15 @@
 }
 
 .update-btn{
-  background-color: #F1B04C;
-  padding: 5px;
+  border-style: solid;
+  border-width: thin;
+  border-color: #03a9f4;
+  padding: 5px 10px;
+  font-weight: 500;
+}
+
+.update-btn:hover{
+  background-color: #03a9f4;
+
 }
 

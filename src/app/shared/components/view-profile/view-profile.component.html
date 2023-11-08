@@ -5,24 +5,33 @@
   <div class="details-card-container">
     <mat-card class="details-card">
       <mat-card-title class="card-title">
-        <h2>Personal Information</h2>
+
         <div class="contained">
           <div class="avatar" style="">{{generateInitials()}}</div>
-          <button class="update-btn" mat-flat-button [routerLink]="['/update-details', user?.id]">Update</button>
+          <h2 class="personal-details-heading">Personal Information</h2>
         </div>
 
       </mat-card-title>
 
       <mat-card-content class="card-content">
         <ul class="list-of-details">
-          <li>First Name: {{user?.name | titlecase}}</li>
-          <li>Last Name: {{user?.surname | titlecase}}</li>
-          <li>E-mail: {{user?.email}}</li>
-          <li>Phone Number: {{user?.phoneNumber}}</li>
-          <li>ID Number: {{user?.idNumber}}</li>
+          <li>FIRST NAME <span class="details-span">{{user?.name | titlecase}}</span></li>
+          <hr/>
+          <li>LAST NAME <span class="details-span">{{user?.surname | titlecase}}</span></li>
+          <hr/>
+          <li>EMAIL <span class="details-span">{{user?.email}}</span></li>
+          <hr/>
+          <li>PHONE NUMBER <span class="details-span">{{user?.phoneNumber}}</span></li>
+          <hr/>
+          <li>ID NUMBER <span class="details-span">{{user?.idNumber}}</span></li>
+          <hr/>
 
         </ul>
       </mat-card-content>
+
+      <mat-card-actions>
+        <button class="update-btn" mat-flat-button [routerLink]="['/update-details', user?.id]">Update</button>
+      </mat-card-actions>
 
     </mat-card>
   </div>

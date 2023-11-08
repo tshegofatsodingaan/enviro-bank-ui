@@ -37,7 +37,7 @@ export class TransferComponent {
     mdConfig.width = '400px';
     mdConfig.data = {
       title: 'Confirm',
-      content: 'Are you sure you want to proceed with this transaction?'
+      content: 'Are you sure you want to transfer '+ this.transferFundsFormGroup.value.transactionAmount + '?'
     }
     const dialogReference = this.dialog.open(DialogBoxComponent, mdConfig);
     dialogReference.afterClosed().subscribe(result => {
