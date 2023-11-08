@@ -21,6 +21,10 @@
 
 }
 
+.avatar:hover{
+  color: #03a9f4;
+}
+
 .nav-items{
   display: flex;
   flex-direction: row;
@@ -64,6 +68,9 @@
   cursor: pointer;
 }
 
+.sub-menu-tag:hover{
+  color: #03a9f4;
+}
 
 .active {
   display: block;

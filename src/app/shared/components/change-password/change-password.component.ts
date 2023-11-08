@@ -53,6 +53,7 @@ export class ChangePasswordComponent implements OnInit {
         this.authService.changePasswordBeforeLogin(passwords, userToken).subscribe((data) => {
           this.invalidCredentials = false;
           this.displaySnackBar();
+          this.route.navigateByUrl('');
         }, (error) => {
           if (error.status == 401) {
             this.invalidCredentials = true;

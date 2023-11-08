@@ -50,3 +50,7 @@
   margin-right: 30px;
   margin-top: 10px;
 }
+
+.account-transfer-button:hover{
+  color: #03a9f4;
+}
