@@ -1,95 +1,24 @@
-body{
+body {
   background-color: #F9F7F5;
 }
 
-.personal-details-container{
-  padding-top: 40px;
+.view-account-container {
+
 }
 
-.list-of-details{
-  list-style-type: none;
-}
-
-.view-account-container{
+.details-card-container {
+  padding-top: 25px;
   width: 80%;
-  margin: auto;
-}
-
-.personal-details-card{
-  width: 90%;
-  margin: auto;
-  border-radius: 0;
-  font-weight: 500;
-  font-size: 20px;
-}
-
-.contained{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.update-btn{
-  padding: 10px 20px;
-  margin-right: 25px;
-  border-style: solid;
-  border-color: #03a9f4;
-  border-width: thin;
-}
-
-.details-card-container{
-  padding-top: 50px;
-  width: 90%;
-  margin: auto;
   z-index: -1;
+  margin: 0 auto auto;
 }
 
-.details-card{
-  border-radius: 0;
-}
 
-.card-title{
-  padding-left: 20px;
-  font-weight: 500;
-}
-
-.card-content{
-  padding: 0 0 0 250px;
-  font-size: 20px;
-}
-
-.avatar{
-  font-size: 26px;
-  width: 2.5em;
-  height: 2.5em;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-style: solid;
-  border-color: #03a9f4;
-  border-width: thin;
-}
-
-.account-card-container{
+.account-card-container {
   display: flex;
   flex-direction: column;
-  width: 90%;
-  margin: auto;
-}
+  width: 65%;
+  margin: 10px auto auto;
 
-.account-details-container{
-  padding-bottom: 20px;
-  font-weight: 400;
-}
-
-.account-card-title{
-  font-size: 20px;
-  padding: 10px 0 10px 15px;
-  cursor: pointer;
-}
-
-.account-card-content{
-  font-size: 18px;
 }
 

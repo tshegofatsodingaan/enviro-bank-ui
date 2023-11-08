@@ -18,7 +18,6 @@ export class TransferComponent {
 
 
   constructor(private formBuilder: FormBuilder,
-              private route: Router,
               private customerService: CustomerService,
               private authService: AuthService,
               private dialog: MatDialog) {
@@ -28,7 +27,6 @@ export class TransferComponent {
   transferFundsFormGroup = this.formBuilder.group({
     accountNum: ['', [Validators.required]],
     receiverAccountNum: ['', [Validators.required]],
-    typeOfTransaction: ['TRANSFER'],
     transactionAmount: ['', [Validators.required]]
   })
 

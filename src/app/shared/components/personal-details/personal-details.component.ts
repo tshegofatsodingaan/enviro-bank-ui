@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {Customer} from "../../../models/customer.model";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import {SharedService} from "../../services/shared.service";
 
 @Component({
@@ -24,7 +24,6 @@ export class PersonalDetailsComponent {
       this.sharedService.getUser(id).subscribe(data => {
         this.user = data;
       });
-      // this.gatherUserAccounts();
     }
 
   }

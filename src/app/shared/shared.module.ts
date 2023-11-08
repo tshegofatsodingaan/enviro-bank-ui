@@ -51,10 +51,11 @@ export const sharedRoutes: AuthorizedRoute[] = [
     MatSnackBarModule,
     RouterLink
   ],
-    exports: [
-        NavbarComponent,
-        AccountCardsComponent
-    ],
+  exports: [
+    NavbarComponent,
+    AccountCardsComponent,
+    PersonalDetailsComponent
+  ],
   providers: [
     AuthService
   ]

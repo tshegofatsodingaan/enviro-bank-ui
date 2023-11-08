@@ -1,40 +1,16 @@
 <app-navbar></app-navbar>
 <body>
 
-  <div class="view-account-container">
-    <div class="details-card-container">
-      <mat-card class="details-card">
-        <mat-card-title class="card-title">
-          <h2>Personal Information</h2>
-
-          <div class="contained">
-            <div class="avatar">{{initials}}</div>
-            <button class="update-btn" mat-flat-button [routerLink]="['/update-details', customer?.id]">Update</button>
-          </div>
-
-        </mat-card-title>
-
-        <mat-card-content class="card-content">
-          <ul class="list-of-details">
-            <li>First Name: {{customer?.name | titlecase}}</li>
-            <li>Last Name: {{customer?.surname | titlecase}}</li>
-            <li>E-mail: {{customer?.email}}</li>
-            <li>Phone Number: {{customer?.phoneNumber}}</li>
-            <li>ID Number: {{customer?.idNumber}}</li>
-
-          </ul>
-        </mat-card-content>
-
-      </mat-card>
-    </div>
-
-    <div class="account-card-container">
-      <h2 class="accounts-heading" *ngIf="viewAccounts">Accounts</h2>
-
-      <app-account-cards></app-account-cards>
-
+<div class="view-account-container">
+  <div class="details-card-container">
+    <app-personal-details></app-personal-details>
   </div>
 
+  <div class="account-card-container">
+    <h2 class="accounts-heading" *ngIf="viewAccounts">Accounts</h2>
+    <app-account-cards></app-account-cards>
   </div>
+
+</div>
 
 </body>
