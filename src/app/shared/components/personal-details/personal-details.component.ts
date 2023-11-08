@@ -25,8 +25,8 @@ export class PersonalDetailsComponent {
         this.user = data;
       });
     }
-
   }
+
 
   public generateInitials(): any {
     if(this.user){

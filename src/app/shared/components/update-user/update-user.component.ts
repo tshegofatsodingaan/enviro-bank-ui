@@ -72,7 +72,7 @@ export class UpdateUserComponent implements OnInit {
         this.sharedService.updateUser(id, userDetails).subscribe((data) => {
           this.invalidDetails = false;
           this.dialogPopUp();
-        },(error) => {
+        }, (error) => {
           if (error.status == 400) {
             this.invalidDetails = true;
           }
