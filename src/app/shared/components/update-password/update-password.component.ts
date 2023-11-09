@@ -16,6 +16,7 @@ export class UpdatePasswordComponent implements OnInit {
   durationInSeconds = 2;
   snackBarMessage = 'Password updated successfully!'
   passwordMismatch = false;
+  strongPasswordPolicy = false;
 
   constructor(private route: Router, private formBuilder: FormBuilder,
               private authService: AuthService,
@@ -44,17 +45,21 @@ export class UpdatePasswordComponent implements OnInit {
         newPassword: this.changePasswordFormGroup.get('newPassword')?.value as string,
         confirmPassword: this.changePasswordFormGroup.get('confirmPassword')?.value as string
       }
+      this.strongPasswordPolicy = false;
+      this.passwordMismatch = false;
+      this.uniquePassword = false;
       if (passwords.newPassword != passwords.confirmPassword){
         this.passwordMismatch = true;
       } else{
         const tokenSession = this.authService.session;
         this.authService.changePassword(passwords, tokenSession.token).subscribe((data) => {
-          this.passwordMismatch = false;
-          this.uniquePassword = false;
           this.displaySnackBar();
         }, (error) => {
           if (error.status == 401) {
             this.uniquePassword = true
+          }
+          if(error.status == 400) {
+            this.strongPasswordPolicy = true;
           }
         })
       }

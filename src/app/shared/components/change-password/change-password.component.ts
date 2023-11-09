@@ -16,6 +16,8 @@ export class ChangePasswordComponent implements OnInit {
   snackBarMessage = 'Password updated successfully!'
   invalidCredentials: boolean = false;
   passwordMismatch = false;
+  strongPasswordPolicy = false;
+  linkExpired = false;
 
   constructor(private route: Router, private formBuilder: FormBuilder,
               private authService: AuthService,
@@ -45,18 +47,27 @@ export class ChangePasswordComponent implements OnInit {
         newPassword: this.changePasswordFormGroup.get('newPassword')?.value as string,
         confirmPassword: this.changePasswordFormGroup.get('confirmPassword')?.value as string
       }
+      this.invalidCredentials = false;
+      this.strongPasswordPolicy = false;
+      this.linkExpired = false;
 
       if(passwords.newPassword != passwords.confirmPassword){
         this.passwordMismatch = true;
       } else {
         const userToken = this.activatedRoute.snapshot.queryParams['token'];
         this.authService.changePasswordBeforeLogin(passwords, userToken).subscribe((data) => {
-          this.invalidCredentials = false;
           this.displaySnackBar();
           this.route.navigateByUrl('');
         }, (error) => {
+
           if (error.status == 401) {
             this.invalidCredentials = true;
+          }
+          if(error.status == 400) {
+            this.strongPasswordPolicy = true;
+          }
+          if(error.status == 404){
+            this.linkExpired = true;
           }
         });
       }

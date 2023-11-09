@@ -18,3 +18,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-color: #378805 !important;
   color: green !important;
 }
+
+.password-policy{
+  color: grey;
+}
+
+.learn-more-link{
+  color: #03a9f4;
+  text-decoration-line: underline;
+}
