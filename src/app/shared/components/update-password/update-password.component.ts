@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
-import {MatSnackBar} from "@angular/material/snack-bar";
+import {NgToastService} from "ng-angular-popup";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-change-password',
@@ -13,14 +13,13 @@ export class UpdatePasswordComponent implements OnInit {
 
   changePasswordFormGroup: FormGroup = new FormGroup({});
   uniquePassword: boolean = false;
-  durationInSeconds = 2;
-  snackBarMessage = 'Password updated successfully!'
   passwordMismatch = false;
   strongPasswordPolicy = false;
 
-  constructor(private route: Router, private formBuilder: FormBuilder,
+  constructor(private formBuilder: FormBuilder,
               private authService: AuthService,
-              private snackBar: MatSnackBar) {
+              private toast: NgToastService,
+              private location: Location) {
   }
 
   ngOnInit(): void {
@@ -30,14 +29,14 @@ export class UpdatePasswordComponent implements OnInit {
     })
   }
 
-  public displaySnackBar() {
-    this.snackBar.open(this.snackBarMessage, 'Close', {
-      duration: this.durationInSeconds * 1000,
-      verticalPosition: 'top',
-      horizontalPosition: 'right',
-      panelClass: 'success-snackbar'
-    })
-  }
+  // public displaySnackBar() {
+  //   this.snackBar.open(this.snackBarMessage, 'Close', {
+  //     duration: this.durationInSeconds * 1000,
+  //     verticalPosition: 'top',
+  //     horizontalPosition: 'right',
+  //     panelClass: 'success-snackbar'
+  //   })
+  // }
 
   public changePassword() {
     if (this.changePasswordFormGroup.valid) {
@@ -53,7 +52,8 @@ export class UpdatePasswordComponent implements OnInit {
       } else{
         const tokenSession = this.authService.session;
         this.authService.changePassword(passwords, tokenSession.token).subscribe((data) => {
-          this.displaySnackBar();
+          this.toast.success({detail: 'Success!', summary: 'Password Changed Successfully', duration: 5000});
+          this.location.back();
         }, (error) => {
           if (error.status == 401) {
             this.uniquePassword = true

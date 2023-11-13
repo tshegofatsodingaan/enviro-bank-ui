@@ -2,9 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AdminService} from "../../services/admin.service";
 import {AuthService} from "../../../shared/services/auth.service";
-import {Router} from "@angular/router";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {DialogBoxComponent} from "../../../shared/components/dialog-box/dialog-box.component";
+import {Location} from "@angular/common";
+import {NgToastService} from "ng-angular-popup";
 
 @Component({
   selector: 'app-add-client',
@@ -20,8 +21,9 @@ export class AddClientComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private adminService: AdminService,
               private authService: AuthService,
-              private route: Router,
-              private dialog: MatDialog) {
+              private dialog: MatDialog,
+              private location: Location,
+              private toast: NgToastService) {
   }
 
   ngOnInit(): void {
@@ -43,7 +45,8 @@ export class AddClientComponent implements OnInit {
     }
     const dialogReference = this.dialog.open(DialogBoxComponent, mdConfig);
     dialogReference.afterClosed().subscribe(result => {
-      // this.route.navigateByUrl('admin/dashboard');
+      this.toast.success({detail: "Success!", summary: "New client added successfully.", duration: 5000})
+      this.location.back();
     })
   }
 

@@ -60,6 +60,7 @@
   border-width: thin;
   border-radius: 0;
   margin-left: auto;
+  font-weight: bold !important;
 }
 
 .update-btn:hover{

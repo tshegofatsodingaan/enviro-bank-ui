@@ -12,6 +12,7 @@ import {AdminModule} from "./admin/admin.module";
 import { AuthInterceptor } from "./interceptor/auth.interceptor";
 import {AuthService} from "./shared/services/auth.service";
 import {CustomerModule} from "./customer/customer.module";
+import {NgToastModule} from "ng-angular-popup";
 
 
 @NgModule({
@@ -28,9 +29,10 @@ import {CustomerModule} from "./customer/customer.module";
     HttpClientModule,
     SharedModule,
     AdminModule,
-    CustomerModule
+    CustomerModule,
+    NgToastModule
   ],
-  providers: [{provide: AuthService},{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
+  providers: [{provide: AuthService},{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}] ,
   bootstrap: [AppComponent]
 })
 export class AppModule { }

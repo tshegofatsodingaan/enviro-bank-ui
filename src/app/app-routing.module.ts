@@ -78,7 +78,7 @@ const routes: AuthorizedRoutes = [
     title: 'Transfer Funds Page'
   },
   {
-    path: 'update-details/:id',
+    path: 'update-user/:id',
     pathMatch: 'full',
     component: UpdateUserComponent,
     title: 'Update User Details'

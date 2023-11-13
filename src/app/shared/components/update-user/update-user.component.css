@@ -3,7 +3,7 @@ body{
 }
 
 .update-page-container{
-  padding: 110px 0 90px 0;
+  padding: 40px 0 90px 0;
 }
 
 .container-heading{
@@ -35,3 +35,9 @@ body{
   margin: auto auto 10px;
 }
 
+.material-back-icon{
+  margin-left: 30%;
+  padding-top: 2%;
+
+
+}

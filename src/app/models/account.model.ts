@@ -5,6 +5,7 @@ export class Account {
   accountNum = 0;
   accountType: AccountType = AccountType.WITHDRAW;
   accountBalance = 0;
+  availableBalance = 0;
   active = true;
   customerNum = '';
 

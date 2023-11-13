@@ -17,7 +17,6 @@ export class PersonalDetailsComponent {
   }
 
   ngOnInit(): void {
-
     let id = this.activatedRoute.snapshot.paramMap.get('id');
 
     if(id){

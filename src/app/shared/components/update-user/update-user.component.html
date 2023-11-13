@@ -1,10 +1,13 @@
 <app-navbar></app-navbar>
 
 <body>
-
+<div class="material-back-icon">
+<app-back-button></app-back-button>
+</div>
 <div class="update-page-container">
 
   <form [formGroup]="updateUserFormGroup" class="form-container">
+
     <mat-card class="update-user-card">
 
       <mat-card-title>
@@ -43,7 +46,7 @@
       </mat-card-content>
 
       <mat-card-actions class="action-button">
-        <button mat-flat-button color="primary" class="form-button" (click)="updateClientDetails()">Update</button>
+        <button mat-flat-button color="primary" class="form-button" (click)="promptUser()">Update</button>
       </mat-card-actions>
 
     </mat-card>

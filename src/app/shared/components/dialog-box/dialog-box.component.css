@@ -20,6 +20,10 @@
   border-color: #03a9f4;
 }
 
+.dialog-box-button-cancel:hover{
+  color: #03a9f4;
+}
+
 .dialog-box-button-continue:hover{
   background-color: #03a9f4;
 }

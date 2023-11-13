@@ -1,11 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from "../../services/auth.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute, Router} from "@angular/router";
-import {MatSnackBar} from "@angular/material/snack-bar";
+import {ActivatedRoute} from "@angular/router";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {DialogBoxComponent} from "../dialog-box/dialog-box.component";
 import {SharedService} from "../../services/shared.service";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-update-user',
@@ -23,7 +22,7 @@ export class UpdateUserComponent implements OnInit {
               private formBuilder: FormBuilder,
               private activatedRoute: ActivatedRoute,
               private dialog: MatDialog,
-              private route: Router) {
+              private location: Location) {
   }
 
 
@@ -53,13 +52,23 @@ export class UpdateUserComponent implements OnInit {
     }
     const dialogRef = this.dialog.open(DialogBoxComponent, mdConfig);
     dialogRef.afterClosed().subscribe(result => {
-      // this.route.navigateByUrl('')
+      if(result == true){
+        this.updateClientDetails();
+        this.location.back();
+      }
+      if(result == false){
+        this.location.back();
+      }
     })
+  }
+  promptUser(){
+    this.dialogPopUp();
   }
 
   updateClientDetails() {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     if (this.updateUserFormGroup.valid) {
+
       const userDetails = {
         name: this.updateUserFormGroup.get('name')?.value as string,
         surname: this.updateUserFormGroup.get('surname')?.value as string,
@@ -71,7 +80,7 @@ export class UpdateUserComponent implements OnInit {
       if (id) {
         this.sharedService.updateUser(id, userDetails).subscribe((data) => {
           this.invalidDetails = false;
-          this.dialogPopUp();
+
         }, (error) => {
           if (error.status == 400) {
             this.invalidDetails = true;

@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Account} from "../../../models/account.model";
 import {CustomerService} from "../../services/customer.service";
 import {Router} from "@angular/router";
-import {AuthService} from "../../../shared/services/auth.service";
 
 @Component({
   selector: 'app-customer-dashboard',

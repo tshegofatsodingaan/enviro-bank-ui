@@ -5,6 +5,7 @@ import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {DialogBoxComponent} from "../dialog-box/dialog-box.component";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-transfer',
@@ -20,7 +21,8 @@ export class TransferComponent {
   constructor(private formBuilder: FormBuilder,
               private customerService: CustomerService,
               private authService: AuthService,
-              private dialog: MatDialog) {
+              private dialog: MatDialog,
+              private location: Location) {
   }
 
 
@@ -30,16 +32,20 @@ export class TransferComponent {
     transactionAmount: ['', [Validators.required]]
   })
 
-  dialogPopUp() {
+  dialogPopUpForConfirmation() {
     const mdConfig = new MatDialogConfig();
     mdConfig.width = '400px';
     mdConfig.data = {
       title: 'Confirm',
-      content: 'Are you sure you want to transfer '+ this.transferFundsFormGroup.value.transactionAmount + '?'
+      content: 'Are you sure you want to transfer R'+ this.transferFundsFormGroup.value.transactionAmount + '?'
     }
     const dialogReference = this.dialog.open(DialogBoxComponent, mdConfig);
     dialogReference.afterClosed().subscribe(result => {
-      // this.transferFundsFormGroup.reset();
+      if(result === true){
+       // this.transfer();
+        this.location.back();
+      }
+
     })
   }
 
@@ -52,15 +58,18 @@ export class TransferComponent {
     }
     const dialogReference = this.dialog.open(DialogBoxComponent, mdConfig);
     dialogReference.afterClosed().subscribe(result => {
-      // this.transferFundsFormGroup.reset();
+      if(result == false){
+        this.location.back();
+      }
     })
   }
+
 
   transfer() {
     if (this.transferFundsFormGroup.valid) {
       const enviro_bank_session = this.authService.session;
+      this.dialogPopUpForConfirmation();
       this.customerService.transferFunds(enviro_bank_session.token, this.transferFundsFormGroup.value as string).subscribe(data => {
-        this.dialogPopUp();
       }, (error) => {
         if (error.status === 400) {
           this.insufficientFunds = true;

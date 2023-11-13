@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {NgToastService} from "ng-angular-popup";
 
 @Component({
   selector: 'app-change-password-before-login',
@@ -22,7 +23,8 @@ export class ChangePasswordComponent implements OnInit {
   constructor(private route: Router, private formBuilder: FormBuilder,
               private authService: AuthService,
               private activatedRoute: ActivatedRoute,
-              private snackBar: MatSnackBar) {
+              private snackBar: MatSnackBar,
+              private toast: NgToastService) {
   }
 
   ngOnInit(): void {
@@ -42,6 +44,7 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   public changePassword() {
+    // this.toastr.success("Success.");
     if (this.changePasswordFormGroup.valid) {
       const passwords = {
         newPassword: this.changePasswordFormGroup.get('newPassword')?.value as string,
@@ -56,7 +59,7 @@ export class ChangePasswordComponent implements OnInit {
       } else {
         const userToken = this.activatedRoute.snapshot.queryParams['token'];
         this.authService.changePasswordBeforeLogin(passwords, userToken).subscribe((data) => {
-          this.displaySnackBar();
+          this.toast.success({detail: "Success!", summary: "Password changed successfully.", duration: 5000})
           this.route.navigateByUrl('');
         }, (error) => {
 

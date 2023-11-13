@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
-import {MatSnackBar} from "@angular/material/snack-bar";
+import {NgToastService} from "ng-angular-popup";
 
 @Component({
   selector: 'app-dialog-box',
@@ -10,11 +10,10 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 export class DialogBoxComponent implements OnInit{
 
   public dialogDetails: { title?: string, content?: string } = {};
-  snackBarMessage = 'Success!';
-  durationInSeconds = 2;
   hideContinueButton = false;
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-              private snackBar: MatSnackBar) {
+              private toast: NgToastService) {
+
     this.dialogDetails = data;
   }
 
@@ -26,15 +25,11 @@ export class DialogBoxComponent implements OnInit{
   }
 
   onClickCancel() {
+    this.toast.info({detail:'Info!', summary: 'Operation Canceled', duration: 5000});
   }
 
   onClickContinue() {
-    this.snackBar.open(this.snackBarMessage, 'Close', {
-      duration: this.durationInSeconds * 1000,
-      verticalPosition: 'top',
-      horizontalPosition: 'right',
-      panelClass: 'success-snackbar'
-    })
+    this.toast.success({detail:'Success!', summary: 'Successful Operation.', duration: 5000});
   }
 
 
