@@ -59,7 +59,7 @@ export class ChangePasswordComponent implements OnInit {
       } else {
         const userToken = this.activatedRoute.snapshot.queryParams['token'];
         this.authService.changePasswordBeforeLogin(passwords, userToken).subscribe((data) => {
-          this.toast.success({detail: "Success!", summary: "Password changed successfully.", duration: 5000})
+          this.toast.success({detail: "Success", summary: "Password changed successfully.", duration: 5000})
           this.route.navigateByUrl('');
         }, (error) => {
 

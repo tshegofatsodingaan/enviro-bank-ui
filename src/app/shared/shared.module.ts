@@ -56,7 +56,8 @@ export const sharedRoutes: AuthorizedRoute[] = [
   exports: [
     NavbarComponent,
     AccountCardsComponent,
-    PersonalDetailsComponent
+    PersonalDetailsComponent,
+    BackButtonComponent
   ],
   providers: [
     AuthService

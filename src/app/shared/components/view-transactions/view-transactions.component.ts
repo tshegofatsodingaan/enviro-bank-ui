@@ -83,6 +83,7 @@ export class ViewTransactionsComponent implements OnInit{
     if (accountNum) {
       this.sharedService.getAllTransactions(accountNum).subscribe(data => {
         this.transactions = data;
+        console.log(this.transactions)
         if(this.transactions.length === 0){
           this.noTransactions = true;
         }

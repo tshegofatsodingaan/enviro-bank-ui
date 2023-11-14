@@ -2,12 +2,8 @@ body {
   background-color: #F9F7F5;
 }
 
-.view-account-container {
-
-}
-
 .details-card-container {
-  padding-top: 25px;
+  padding-top: 7px;
   width: 80%;
   z-index: -1;
   margin: 0 auto auto;
@@ -19,6 +15,9 @@ body {
   flex-direction: column;
   width: 65%;
   margin: 10px auto auto;
-
 }
 
+.back-btn{
+  margin-left: 18%;
+  padding-top: 1%;
+}

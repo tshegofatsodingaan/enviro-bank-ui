@@ -29,14 +29,6 @@ export class UpdatePasswordComponent implements OnInit {
     })
   }
 
-  // public displaySnackBar() {
-  //   this.snackBar.open(this.snackBarMessage, 'Close', {
-  //     duration: this.durationInSeconds * 1000,
-  //     verticalPosition: 'top',
-  //     horizontalPosition: 'right',
-  //     panelClass: 'success-snackbar'
-  //   })
-  // }
 
   public changePassword() {
     if (this.changePasswordFormGroup.valid) {
@@ -52,8 +44,7 @@ export class UpdatePasswordComponent implements OnInit {
       } else{
         const tokenSession = this.authService.session;
         this.authService.changePassword(passwords, tokenSession.token).subscribe((data) => {
-          this.toast.success({detail: 'Success!', summary: 'Password Changed Successfully', duration: 5000});
-          this.location.back();
+          this.toast.success({detail: 'Success', summary: 'Password Changed Successfully', duration: 5000});
         }, (error) => {
           if (error.status == 401) {
             this.uniquePassword = true

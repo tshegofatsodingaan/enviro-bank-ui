@@ -25,11 +25,11 @@ export class DialogBoxComponent implements OnInit{
   }
 
   onClickCancel() {
-    this.toast.info({detail:'Info!', summary: 'Operation Canceled', duration: 5000});
+    this.toast.info({detail:'Note', summary: 'Operation Canceled', duration: 5000});
   }
 
   onClickContinue() {
-    this.toast.success({detail:'Success!', summary: 'Successful Operation.', duration: 5000});
+    this.toast.success({detail:'Success', summary: 'Successful Operation.', duration: 5000});
   }
 
 

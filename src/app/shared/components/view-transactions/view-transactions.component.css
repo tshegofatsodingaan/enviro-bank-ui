@@ -5,6 +5,7 @@ body{
 .transactions-container{
   width: 85%;
   margin: auto;
+
 }
 
 
@@ -23,7 +24,7 @@ body{
 
 
 .personal-details-container{
-  padding-top: 30px;
+  padding-top: 10px;
 }
 
 
@@ -134,4 +135,9 @@ body{
   font-weight: 500;
   font-size: 18px;
 
+}
+
+.back-btn{
+  margin-left: 11.8%;
+  padding-top: 2%;
 }
