@@ -1,11 +1,24 @@
 <app-navbar></app-navbar>
 
 <body class="account-body">
-<div class="account-cards-container">
+<div class="account-empty-container">
+  <mat-card class="no-account-info" *ngIf="isAccountEmpty">
+    <mat-card-title >
+      <div class="no-account-heading">No accounts?</div>
+    </mat-card-title>
+    <mat-card-content>
+      <div>Please contact your administrator via email to create an account.</div>
+    </mat-card-content>
+
+    <mat-card-actions class="sign-out-btn">
+      <button mat-button (click)="signOut()">Sign Out</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<div *ngIf="!isAccountEmpty" class="account-cards-container">
   <h2 class="accounts-heading">Accounts</h2>
-
   <app-account-cards></app-account-cards>
-
 </div>
 </body>
 

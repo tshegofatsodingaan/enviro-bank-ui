@@ -45,9 +45,15 @@ export class AddClientComponent implements OnInit {
     }
     const dialogReference = this.dialog.open(DialogBoxComponent, mdConfig);
     dialogReference.afterClosed().subscribe(result => {
-      this.toast.success({detail: "Success!", summary: "New client added successfully.", duration: 5000})
-      this.location.back();
+      if(result == true){
+        this.addNewClient();
+      }
+
     })
+  }
+
+  promptUser(){
+    this.dialogPopUp();
   }
 
   addNewClient() {
@@ -65,7 +71,9 @@ export class AddClientComponent implements OnInit {
       this.adminService.addNewClient(enviro_bank_session.token, userDetails).subscribe(data => {
         this.duplicateEmail = false;
         this.invalidPersonalDetails = false;
-        this.dialogPopUp();
+          this.toast.success({detail: "Success!", summary: "New client added successfully.", duration: 5000});
+        this.location.back();
+
       }, (error) => {
         if (error.status == 422) {
           this.duplicateEmail = true;
@@ -73,7 +81,10 @@ export class AddClientComponent implements OnInit {
         if (error.status == 400) {
           this.invalidPersonalDetails = true;
         }
-      });
+      }
+
+      );
+
 
     }
     return

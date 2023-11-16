@@ -45,6 +45,7 @@ export class UpdatePasswordComponent implements OnInit {
         const tokenSession = this.authService.session;
         this.authService.changePassword(passwords, tokenSession.token).subscribe((data) => {
           this.toast.success({detail: 'Success', summary: 'Password Changed Successfully', duration: 5000});
+          this.location.back();
         }, (error) => {
           if (error.status == 401) {
             this.uniquePassword = true

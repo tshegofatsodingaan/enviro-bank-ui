@@ -8,9 +8,7 @@ import { UpdateUserComponent } from "./shared/components/update-user/update-user
 import {ViewProfileComponent} from "./shared/components/view-profile/view-profile.component";
 import {ViewAccountsComponent} from "./shared/components/view-accounts/view-accounts.component";
 import {ViewTransactionsComponent} from "./shared/components/view-transactions/view-transactions.component";
-import {
-  ChangePasswordComponent
-} from "./shared/components/change-password/change-password.component";
+import {ChangePasswordComponent} from "./shared/components/change-password/change-password.component";
 
 const routes: AuthorizedRoutes = [
   {

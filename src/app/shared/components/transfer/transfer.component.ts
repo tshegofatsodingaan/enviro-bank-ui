@@ -2,10 +2,10 @@ import {Component} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
 import {CustomerService} from "../../../customer/services/customer.service";
 import {AuthService} from "../../services/auth.service";
-import {Router} from "@angular/router";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {DialogBoxComponent} from "../dialog-box/dialog-box.component";
 import {Location} from "@angular/common";
+import {NgToastService} from "ng-angular-popup";
 
 @Component({
   selector: 'app-transfer',
@@ -22,7 +22,8 @@ export class TransferComponent {
               private customerService: CustomerService,
               private authService: AuthService,
               private dialog: MatDialog,
-              private location: Location) {
+              private location: Location,
+              private toast: NgToastService) {
   }
 
 
@@ -40,12 +41,11 @@ export class TransferComponent {
       content: 'Are you sure you want to transfer R'+ this.transferFundsFormGroup.value.transactionAmount + '?'
     }
     const dialogReference = this.dialog.open(DialogBoxComponent, mdConfig);
+
     dialogReference.afterClosed().subscribe(result => {
       if(result === true){
-       // this.transfer();
-        this.location.back();
+        this.transfer();
       }
-
     })
   }
 
@@ -58,18 +58,20 @@ export class TransferComponent {
     }
     const dialogReference = this.dialog.open(DialogBoxComponent, mdConfig);
     dialogReference.afterClosed().subscribe(result => {
-      if(result == false){
-        this.location.back();
-      }
+
     })
   }
 
+  promptUser(){
+    this.dialogPopUpForConfirmation();
+  }
 
   transfer() {
     if (this.transferFundsFormGroup.valid) {
       const enviro_bank_session = this.authService.session;
-      this.dialogPopUpForConfirmation();
       this.customerService.transferFunds(enviro_bank_session.token, this.transferFundsFormGroup.value as string).subscribe(data => {
+        this.toast.success({detail: "Success", summary: "Funds transferred successfully.", duration: 5000});
+        this.location.back();
       }, (error) => {
         if (error.status === 400) {
           this.insufficientFunds = true;

@@ -2,7 +2,6 @@
   background-color: #F9F7F5;
 }
 
-
 .add-client-card{
   margin: auto;
 }
@@ -21,4 +20,41 @@
   font-weight: 500;
   margin-bottom: 20px;
   color: black;
+}
+
+.no-account-info{
+  width: 30%;
+  background-color: #acd2cc;
+  color: #2d2f31;
+  border-radius: 0;
+  font-weight: 500;
+  margin: auto;
+  padding: 20px;
+  bottom: -100px;
+}
+
+/*.account-empty-container{*/
+/*  padding-top: 15%;*/
+/*}*/
+
+.no-account-heading{
+  font-weight: bold;
+  font-size: 18px;
+  padding-left: 15px;
+  padding-bottom: 10px;
+}
+
+.sign-out-btn{
+  margin-left: auto;
+  margin-right: 35px;
+  padding: 1px;
+
+}
+
+button{
+  border-style: solid;
+  border-width: thin;
+  border-color: #2d2f31;
+  border-radius: 0;
+  font-weight: bold;
 }

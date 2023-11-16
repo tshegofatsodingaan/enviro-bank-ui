@@ -29,7 +29,6 @@ export class DialogBoxComponent implements OnInit{
   }
 
   onClickContinue() {
-    this.toast.success({detail:'Success', summary: 'Successful Operation.', duration: 5000});
   }
 
 

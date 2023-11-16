@@ -5,6 +5,7 @@ import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {DialogBoxComponent} from "../dialog-box/dialog-box.component";
 import {SharedService} from "../../services/shared.service";
 import {Location} from "@angular/common";
+import {NgToastService} from "ng-angular-popup";
 
 @Component({
   selector: 'app-update-user',
@@ -22,7 +23,8 @@ export class UpdateUserComponent implements OnInit {
               private formBuilder: FormBuilder,
               private activatedRoute: ActivatedRoute,
               private dialog: MatDialog,
-              private location: Location) {
+              private location: Location,
+              private toast: NgToastService) {
   }
 
 
@@ -54,10 +56,7 @@ export class UpdateUserComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if(result == true){
         this.updateClientDetails();
-        this.location.back();
-      }
-      if(result == false){
-        this.location.back();
+
       }
     })
   }
@@ -80,10 +79,18 @@ export class UpdateUserComponent implements OnInit {
       if (id) {
         this.sharedService.updateUser(id, userDetails).subscribe((data) => {
           this.invalidDetails = false;
+          this.toast.success({detail: "Success", summary: "Details updated successfully.", duration: 5000});
+          this.location.back();
 
         }, (error) => {
           if (error.status == 400) {
             this.invalidDetails = true;
+          }
+          if(error.status == 403){
+            console.log("I feel sick!")
+          }
+          if(error.status == 404){
+            console.log("Im not found")
           }
         });
 

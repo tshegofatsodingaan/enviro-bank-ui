@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Account} from "../../../models/account.model";
 import {CustomerService} from "../../services/customer.service";
 import {Router} from "@angular/router";
+import {AuthService} from "../../../shared/services/auth.service";
 
 @Component({
   selector: 'app-customer-dashboard',
@@ -10,11 +11,12 @@ import {Router} from "@angular/router";
 })
 export class CustomerDashboardComponent implements OnInit{
 
-  accounts: Account[] = []
+  accounts: Account[] = [];
+  isAccountEmpty: boolean = false;
 
 
   constructor(private customerService: CustomerService,
-              private route: Router) {
+              private authService: AuthService) {
   }
 
 
@@ -26,13 +28,16 @@ export class CustomerDashboardComponent implements OnInit{
 
       this.customerService.getAllAccounts(enviro_bank_session.token, enviro_bank_session.id, {size: 3, page: 0}).subscribe(data => {
         this.accounts = data;
+        if(this.accounts.length == 0){
+          this.isAccountEmpty = true;
+        }
+        console.log(this.accounts);
       })
     }
     }
 
-
-  transferFunds() {
-    this.route.navigateByUrl('shared/transfer-funds');
+  public signOut(){
+    this.authService.redirectToLogin();
   }
 
 }

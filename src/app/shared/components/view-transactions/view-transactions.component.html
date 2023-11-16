@@ -56,7 +56,7 @@
                 <div>{{transaction.dateOfTransaction | date: 'd MMMM y'}}</div>
                 <div class="transaction-details">
                   <div>Transfer From: Current Account</div>
-                  <div class="amount">+ {{transaction.transactionAmount | currency: 'R '}}</div>
+                  <div class="amount">- {{transaction.transactionAmount | currency: 'R '}}</div>
                 </div>
               </div>
             </div>

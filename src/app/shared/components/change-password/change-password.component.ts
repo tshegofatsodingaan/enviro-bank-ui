@@ -23,7 +23,6 @@ export class ChangePasswordComponent implements OnInit {
   constructor(private route: Router, private formBuilder: FormBuilder,
               private authService: AuthService,
               private activatedRoute: ActivatedRoute,
-              private snackBar: MatSnackBar,
               private toast: NgToastService) {
   }
 
@@ -34,17 +33,8 @@ export class ChangePasswordComponent implements OnInit {
     })
   }
 
-  public displaySnackBar() {
-    this.snackBar.open(this.snackBarMessage, 'Close', {
-      duration: this.durationInSeconds * 1000,
-      verticalPosition: 'top',
-      horizontalPosition: 'right',
-      panelClass: 'success-snackbar'
-    })
-  }
 
   public changePassword() {
-    // this.toastr.success("Success.");
     if (this.changePasswordFormGroup.valid) {
       const passwords = {
         newPassword: this.changePasswordFormGroup.get('newPassword')?.value as string,
@@ -59,7 +49,10 @@ export class ChangePasswordComponent implements OnInit {
       } else {
         const userToken = this.activatedRoute.snapshot.queryParams['token'];
         this.authService.changePasswordBeforeLogin(passwords, userToken).subscribe((data) => {
-          this.toast.success({detail: "Success", summary: "Password changed successfully.", duration: 5000})
+          this.invalidCredentials = false;
+          this.strongPasswordPolicy = false;
+          this.linkExpired = false;
+          this.toast.success({detail: "Success", summary: "Password changed successfully.", duration: 5000});
           this.route.navigateByUrl('');
         }, (error) => {
 

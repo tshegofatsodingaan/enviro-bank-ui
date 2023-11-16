@@ -21,3 +21,10 @@ body {
   margin-left: 18%;
   padding-top: 1%;
 }
+
+.no-accounts-notice{
+  padding-left: 40%;
+  padding-top: 8%;
+  font-size: 20px;
+  color: grey;
+}
